@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title>Custom Kslides</title>
+    
+    <link href="revealjs/dist/reveal.css" rel="stylesheet">
+    <link href="revealjs/dist/reset.css" rel="stylesheet">
+    <link href="revealjs/dist/theme/white.css" id="theme" rel="stylesheet">
+    <link href="revealjs/plugin/highlight/github.css" id="highlight-theme" rel="stylesheet">
+    <link href="revealjs/plugin/copycode/copycode.css" rel="stylesheet">
+    
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    
+    <style media="screen" type="text/css">
+			/* These CSS settings are embedded directly in the presentation html */
+		
+			@font-face {
+			    font-family: 'CommitMono';
+			    src: url('./fonts/CommitMono/CommitMono-450-Regular.otf') format("opentype");
+			    font-weight: normal;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'CommitMono';
+			    src: url('./fonts/CommitMono/CommitMono-450-Italic.otf') format("opentype");
+			    font-weight: normal;
+			    font-style: italic;
+			}
+		
+			@font-face {
+			    font-family: 'CommitMono';
+			    src: url('./fonts/CommitMono/CommitMono-700-Regular.otf') format("opentype");
+			    font-weight: bold;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'CommitMono';
+			    src: url('./fonts/CommitMono/CommitMono-700-Italic.otf') format("opentype");
+			    font-weight: bold;
+			    font-style: italic;
+			}
+		
+			@font-face {
+			    font-family: 'SamsungSSBody';
+			    src: url('./fonts/SamsungSS/SamsungSSBody-Light.woff2') format('woff2');
+			    font-weight: 300;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'SamsungSSBody';
+			    src: url('./fonts/SamsungSS/SamsungSSBody-Regular.woff2') format('woff2');
+			    font-weight: 400;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'SamsungSSBody';
+			    src: url('./fonts/SamsungSS/SamsungSSBody-Bold.woff2') format('woff2');
+			    font-weight: 700;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'SamsungSSHead';
+			    src: url('./fonts/SamsungSS/SamsungSSHead-Light.woff2') format('woff2');
+			    font-weight: 300;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'SamsungSSHead';
+			    src: url('./fonts/SamsungSS/SamsungSSHead-Regular.woff2') format('woff2');
+			    font-weight: 400;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'SamsungSSHead';
+			    src: url('./fonts/SamsungSS/SamsungSSHead-Medium.woff2') format('woff2');
+			    font-weight: 500;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'SamsungSSHead';
+			    src: url('./fonts/SamsungSS/SamsungSSHead-Bold.woff2') format('woff2');
+			    font-weight: 700;
+			    font-style: normal;
+			}
+		
+		
+			.reveal {
+			    /* Required by Samsung Style guide */
+			    font-variant-ligatures: none;
+			    font-kerning: none;
+			    text-wrap: pretty;
+			}
+		
+			.reveal code {
+			    /* Use CommitMono code ligatures */
+			    font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+			}
+		
+			/* This prevents auto-capitalization of headers */
+			.reveal h1,
+			.reveal h2,
+			.reveal h3,
+			.reveal h4,
+			.reveal h5,
+			.reveal h6 {
+			    text-transform: none;
+			}
+		
+			a.top-left {
+			    position: absolute;
+			    z-index: 1;
+			    width: clamp(50px, 8vmax, 80px);
+			    line-height: 0;
+			    color: rgba(255, 255, 255, 0.5);
+			}
+		
+			a.top-left path {
+			    fill: #258bd2;
+			}
+		
+			a.top-left:hover {
+			    color: white;
+			}
+		
+			a.top-right {
+			    position: absolute;
+			    top: 15px;
+			    right: 15px;
+			    z-index: 1;
+			}
+		
+		</style>
+    
+    <style media="screen" type="text/css">
+			
+			.reveal-viewport {
+			--r-overlay-header-height: 0px !important;
+			--r-overlay-margin: 0px !important;
+			--r-overlay-padding: 0px !important;
+			--r-overlay-gap: 0px !important;
+			}
+			.reveal .slides {
+			top: 0 !important;
+			left: calc((var(--viewport-width) - (var(--slide-width) * var(--slide-scale))) / 2) !important;
+			width: var(--slide-width) !important;
+			height: var(--slide-height) !important;
+			transform-origin: top left !important;
+			transform: scale(var(--slide-scale)) !important;
+			}
+			.reveal img.illustration {
+			float: right;
+			width: 400px;
+			margin-top: 0;
+			margin-right: 0;
+			margin-bottom: 1em;
+			margin-left: 1em;
+			}
+			.reveal img.illustration.left {
+			float: left;
+			margin-top: 0;
+			margin-right: 1em;
+			margin-bottom: 1em;
+			margin-left: 0;
+			}
+			.reveal img.illustration.small {
+			width: 250px;
+			}
+			.reveal img.illustration.large {
+			width: 525px;
+			}
+			.reveal img[alt^="Samsung_"] {
+			width: 400px;
+			margin-top: 0;
+			margin-right: 0;
+			margin-bottom: 0;
+			margin-left: 0;
+			}
+			.reveal iframe.illustration {
+			width: 480px;
+			height: 270px;
+			float: right;
+			margin-top: 0;
+			margin-right: 0;
+			margin-bottom: 1em;
+			margin-left: 1em;
+			border: 0 none transparent;
+			}
+			.reveal iframe.illustration.left {
+			float: left;
+			margin-top: 0;
+			margin-right: 1em;
+			margin-bottom: 1em;
+			margin-left: 0;
+			}
+			.reveal .code5lines pre code {
+			max-height: 141.0px;
+			}
+			.reveal .code10lines pre code {
+			max-height: 281.0px;
+			}
+			.reveal .code13lines pre code {
+			max-height: 366.0px;
+			}
+			.reveal .code15lines pre code {
+			max-height: 422.0px;
+			}
+			.reveal .code20lines pre code {
+			max-height: 562.0px;
+			}
+			.reveal .code25lines pre code {
+			max-height: 703.0px;
+			}
+			.reveal .code30lines pre code {
+			max-height: 843.0px;
+			}
+			.reveal .code35lines pre code {
+			max-height: 984.0px;
+			}
+			.reveal pre code {
+			max-height: 366.0px;
+			}
+			.reveal span.vspace {
+			display: block;
+			}
+			.color_default {
+			color: #1428A0;
+			}
+			.color_red {
+			color: #FE5D4D;
+			}
+			.color_green {
+			color: #00C3B2;
+			}
+			.color_blue {
+			color: #0077C8;
+			}
+			.color_samsungblue {
+			color: #1428A0;
+			}
+			.color_samsungwhite {
+			color: #FFFFFF;
+			}
+			.color_samsungblack {
+			color: #000000;
+			}
+			.color_skyblue {
+			color: #0077C8;
+			}
+			.color_seablue {
+			color: #00B3E3;
+			}
+			.color_teal {
+			color: #00C3B2;
+			}
+			.color_lavender {
+			color: #8093DC;
+			}
+			.color_clover {
+			color: #97D653;
+			}
+			.color_saffron {
+			color: #FFB546;
+			}
+			.color_coral {
+			color: #FE5D4D;
+			}
+			.color_yellow {
+			color: #FFD400;
+			}
+			.color_black {
+			color: #000000;
+			}
+			.color_white {
+			color: #FFFFFF;
+			}
+			.color_gray {
+			color: #75787B;
+			}
+			.comment {
+			color: #0077C8;
+			font-style: italic;
+			}
+			.comment::before {
+			color: #0077C8;
+			font-style: italic;
+			content: '// ';
+			}
+			.prompt {
+			color: #0077C8;
+			font-family: var(--r-code-font);
+			font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+			}
+			.prompt::before {
+			color: #0077C8;
+			font-family: var(--r-code-font);
+			font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+			font-weight: bold;
+			content: 'JB: ';
+			}
+			.answer {
+			color: #00C3B2;
+			font-family: var(--r-code-font);
+			font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+			}
+			.answer::before {
+			color: #00C3B2;
+			font-family: var(--r-code-font);
+			font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+			font-weight: bold;
+			content: 'AI: ';
+			}
+			.tip {
+			color: #00C3B2;
+			font-family: var(--r-code-font);
+			font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+			}
+			.tip::before {
+			color: #0077C8;
+			font-weight: bold;
+			content: 'Tip: ';
+			}
+			.diy {
+			color: #0077C8;
+			font-family: var(--r-code-font);
+			font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+			}
+			.diy::before {
+			color: #00C3B2;
+			font-weight: bold;
+			content: 'DIY: ';
+			}
+			.reveal span.block {
+			display: block;
+			width: 70%;
+			margin: var(--r-block-margin) 0 var(--r-block-margin) 15%;
+			text-align: left;
+			}
+			.reveal span.block.yellow_subtitles {
+			color: #FFD400;
+			background-color: #000000;
+			padding: 0 8px;
+			width: 70%;
+			text-align: center;
+			}
+			.reveal span.block.indent-1 {
+			width: 65%;
+			margin-left: 20%;
+			}
+			.reveal span.block.indent-2 {
+			width: 60%;
+			margin-left: 25%;
+			}
+			.reveal .table_no_hlines td, .reveal .table_no_hlines th {
+			border-collapse: collapse;
+			border: 0 none transparent;
+			}
+			.reveal table td, .reveal table th {
+			vertical-align: middle;
+			}
+			.multiColumn2::after {
+			content: '';
+			display: table;
+			clear: both;
+			}
+			.column2 {
+			float: left;
+			width: 50%;
+			}
+			.column2 li {
+			margin-bottom: 10px;
+			}
+			.has_tip > blockquote:nth-child(1) {
+			font-size: 0.6em;
+			color: #666;
+			border-left-width: 4px;
+			border-left-style: solid;
+			border-left-color: #1b91dd;
+			padding-left: 10px;
+			margin-top: 0;
+			margin-right: 0;
+			margin-bottom: 0;
+			margin-left: 0;
+			width: 20%;
+			text-align: left;
+			position: absolute;
+			right: 0;
+			bottom: auto;
+			z-index: 10;
+			top: 3em;
+			}
+			:root {
+			--r-main-font: SamsungSSBody, Helvetica, sans-serif;
+			--r-heading-font: SamsungSSHead, Helvetica, sans-serif;
+			--r-code-font: CommitMono, monospace;
+			--r-background-color: #fff;
+			--r-main-font-size: 42px;
+			--r-main-color: #000;
+			--r-heading-color: #000;
+			--r-block-margin: 15px;
+			--r-heading-margin: 0 0 20px 0;
+			--r-heading-line-height: 1.2;
+			--r-heading-letter-spacing: normal;
+			--r-heading-text-transform: uppercase;
+			--r-heading-text-shadow: none;
+			--r-heading-font-weight: 700;
+			--r-heading1-text-shadow: none;
+			--r-heading1-size: 2.0em;
+			--r-heading2-size: 1.6em;
+			--r-heading3-size: 1.3em;
+			--r-heading4-size: 1.1em;
+			--r-link-color-dark: #0083E3;
+			--r-link-color-hover: #0077C8;
+			--r-link-color: #1428A0;
+			--r-selection-background-color: #8093DC;
+			--r-selection-color: #000;
+			--r-overlay-element-bg-color: 0, 0, 0;
+			--r-overlay-element-fg-color: 240, 240, 240;
+			}
+			.reveal h1 {
+			color: #1428A0;
+			}
+			.reveal h2 {
+			color: #0077C8;
+			padding-top: 0.1em;
+			}
+			.reveal blockquote {
+			text-align: left;
+			border-left: 4px solid #0077C8;
+			box-shadow: none;
+			padding-left: 1em;
+			font-size: 1em;
+			width: auto;
+			display: flow-root;
+			margin: var(--r-block-margin) 0 var(--r-block-margin) 15%;
+			}
+			.reveal blockquote p {
+			margin-top: 0;
+			margin-bottom: 0;
+			}
+			
+			    .reveal .no_stylistic_set code {
+			    font-feature-settings: "ss01" 0, "ss02" 0, "ss03" 0, "ss04" 0, "ss05" 0;
+			}
+			    .has_tip.tip_at_line_17 > blockquote:nth-child(1) {
+			        bottom: auto;
+			        top: 17em;
+			}
+			
+		</style>
+    
+  </head>
+  <body>
+    <div class="reveal">
+      
+      <div class="slides">
+        <section>
+          <section class="has_tip" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+> Navigation
+> * space key
+> * explicit movement: cursors, ...
+> * speaker notes: `S`
+> * presentation map: `Esc`
+> * more: `?`
+
+# kslides template
+
+> © j.banaszczyk@samsung.com  
+> feel free to reuse
+
+## This presentation
+
+- live: https://pages.github.sec.samsung.net/j-banaszczyk/ai-soul/kslides.html
+- repository to clone: https://github.sec.samsung.net/j-banaszczyk/ai-soul/
+
+## kslides
+
+- kslides framework: https://github.com/kslides/kslides
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Other examples
+
+- (this one) https://pages.github.sec.samsung.net/j-banaszczyk/ai-soul/kslides.html
+- https://pages.github.sec.samsung.net/j-banaszczyk/ai-soul/
+- https://pages.github.sec.samsung.net/j-banaszczyk/rex/
+- https://pages.github.sec.samsung.net/j-banaszczyk/rex2/
+- (obsolete) https://pages.github.sec.samsung.net/j-banaszczyk/code_i_workshop/
+- https://pages.github.sec.samsung.net/j-banaszczyk/code_i_prompts/
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Reuse
+
+- Update `kslides-core`
+    - clone https://github.com/jbanaszczyk/kslides
+    - review https://github.com/jbanaszczyk/kslides/blob/master/RELEASE_NOTES.md
+    - `gradlew publishToMavenLocal`
+- build and publish content 
+    - copy / clone / fork this repo
+    - open in IntelliJ
+    - edit `src/main/kotlin/Slides.kt`
+    - run as IntelliJ/kotlin configuration
+    - commit / push
+    - publish from `/docs` using GitHub Pages
+    - read main `README.md` file
+- Local preview
+    - http://127.0.0.1:8080
+</script>
+          </section>
+          
+        </section>
+        
+        <section>
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Template features
+
+- reveal.js / kslides framework
+- Samsung typography and color palette
+- CommitMono font for code blocks
+- top-aligned slide layout
+- text helpers / block text helpers
+- minor configuration tuning
+- code block height presets
+- illustrations (images styling)
+- vertical spacing helper
+- special character constants
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Project files
+
+- Most content goes to:
+  - `src/main/kotlin/Slides.kt`
+- Generated/published content:
+  - `docs/`
+- Static assets:
+    - `src/main/resources/public/`
+    - <span class="color_red">Important: store images in both:</span>
+      - `docs/images`
+      - `src/main/resources/public/images`
+</script>
+          </section>
+          
+        </section>
+        
+        <section>
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Typography
+
+## Fonts
+
+- main font: SamsungSS
+- code font: `CommitMono`
+- ligatures and kerning are disabled globally
+  - required by Samsung Brand Playbook
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Typography
+## Headers
+___
+# Heading h1
+## Heading h2
+### Heading h3
+#### Heading h4
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+                    # Typography
+    
+                    ## Samsung brand colors
+    
+                    <span class="vspace" style="height: 1em"></span>
+    
+                    | Group | Color classes |
+|---|---|
+| Default | <span class="color_default">color_default</span> |
+| Red Green Blue | <span class="color_red">color_red</span> <span class="color_green">color_green</span> <span class="color_blue">color_blue</span> |
+| Primary | <span class="color_samsungblue">color_samsungblue</span> <span class="color_samsungwhite">color_samsungwhite</span> <span class="color_samsungblack">color_samsungblack</span> |
+| Secondary | <span class="color_skyblue">color_skyblue</span> <span class="color_seablue">color_seablue</span> <span class="color_teal">color_teal</span> <span class="color_lavender">color_lavender</span> <span class="color_clover">color_clover</span> <span class="color_saffron">color_saffron</span> <span class="color_coral">color_coral</span> <span class="color_yellow">color_yellow</span> |
+| Black White Gray | <span class="color_black">color_black</span> <span class="color_white">color_white</span> <span class="color_gray">color_gray</span> |
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Typography
+
+## Text marks
+
+Produces `<span></span>` tag
+
+<span class="vspace" style="height: 1em"></span>
+
+| Function                       |                                    Result |
+|--------------------------------|-------------------------------------------|
+| `Mark.PROMPT("Some content")`  | <span class="prompt">Some content</span>  |
+| `Mark.ANSWER("Some content")`  | <span class="answer">Some content</span>  |
+| `Mark.TIP("Some content")`     | <span class="tip">Some content</span>     |
+| `Mark.DIY("Some content")`     | <span class="diy">Some content</span>     |
+| `Mark.COMMENT("Some content")` | <span class="comment">Some content</span> |
+| `Mark.RED("Red")`              | <span class="color_red">Red</span>              |
+| `Mark.GREEN("Green")`          | <span class="color_green">Green</span>          |
+| `Mark.BLUE("Blue")`            | <span class="color_blue">Blue</span>            |
+| `Mark.BLACK("Black")`          | <span class="color_black">Black</span>          |
+
+🙃 <span class="color_red">Blue</span> <span class="color_green">Red</span> <span class="color_blue">Green</span> 🙃
+
+---
+
+# Typography
+
+## Text marks
+
+Marks support fragments and effects:
+
+| Usage                                          | Result |
+|------------------------------------------------|--------|
+| `Mark.BLUE("text", 0)`                         | <span class="color_blue fragment fragment" data-fragment-index="0">text</span> |
+| `Mark.RED("text", 0, Effect.STRIKE)`           | <span class="color_red fragment fragment strike" data-fragment-index="0">text</span> |
+| `Mark.GREEN("text", 0, Effect.FADE_UP)`        | <span class="color_green fragment fragment fade-up" data-fragment-index="0">text</span> |
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Typography
+
+## Block Text marks
+
+`Mark.YYYYY.block` - produces `
+              <div></div>` tag
+
+<span class="vspace" style="height: 1em"></span>
+
+<span class="prompt block">This is a prompt block.</span>
+
+
+<span class="answer block">This is an answer block.</span>
+
+
+<span class="tip block">This is a tip block.</span>
+
+
+<span class="diy block">This is a DIY block.</span>
+
+
+<span class="comment block">This is a comment block.</span>
+
+
+___
+
+<span class="color_black block">Mark.BLACK.block works too</span>
+
+
+<span class="color_blue block fragment fragment" data-fragment-index="1">Mark.YYYY and Mark.YYYY.block supports fragments</span>
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Typography
+
+## Block marks: indent
+
+`Mark.YYYY.block("text", indent = N)` - indent level 0..2
+
+<span class="vspace" style="height: 1em"></span>
+
+<span class="color_blue block">indent = null (default)</span>
+
+
+<span class="color_blue block indent-1">indent = 1</span>
+
+
+<span class="color_blue block indent-2">indent = 2</span>
+
+
+<span class="vspace" style="height: 1em"></span>
+
+## Nested marks inside block
+
+<span class="color_black block">Outer block with <span class="color_blue fragment fragment" data-fragment-index="0">inner inline mark</span> inside</span>
+</script>
+          </section>
+          
+        </section>
+        
+        <section>
+          <section class="table_no_hlines">
+            <h1>Code blocks</h1>
+            <ul>
+              <li>Using CommitMono font</li>
+              <li>Stylistic sets ss01..ss05 (ligatures, arrows and so) turned on</li>
+            </ul>
+            <hr>
+            <table>
+              <tr>
+                <th>Ligatures</th><th>Arrows</th><th>Smart case</th><th>Symbol spacing</th><th>Smart kerning</th>
+              </tr>
+              <tr>
+                <th>ss01</th><th>ss02</th><th>ss03</th><th>ss04</th><th>ss05</th>
+              </tr>
+              <tr>
+                <td><code>&lt;= === !=</code></td><td><code>&gt;-&gt; =&gt;</code></td><td><code>2+3-4</code></td><td><code>... &lt;&lt;</code></td><td><code>Commit Mono kerning: moi</code></td>
+              </tr>
+              <tr>
+                <td class="no_stylistic_set"><code>&lt;= === !=</code></td><td class="no_stylistic_set"><code>&gt;-&gt; =&gt;</code></td><td class="no_stylistic_set"><code>2+3-4</code></td><td class="no_stylistic_set"><code>... &lt;&lt;</code></td><td class="no_stylistic_set"><code>Commit Mono kerning: moi</code></td>
+              </tr>
+            </table>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+                    # Code blocks
+    
+                    Two code blocks on page, 13 lines each.
+    
+                    ```plaintext
+                    Default code block height: 13 lines
+    
+                    >= === !=
+                    >-> =>
+                    2+3-4
+                    ... >> <<
+                    Commit Mono kerning: moi
+    
+                    10: code block
+11: code block
+12: code block
+13: code block
+14: code block
+15: code block
+16: code block
+17: code block
+18: code block
+19: code block
+20: code block
+21: code block
+22: code block
+23: code block
+24: code block
+25: code block
+26: code block
+27: code block
+28: code block
+29: code block
+30: code block
+                    ```
+    
+                    ```plaintext
+                    1: code block
+2: code block
+3: code block
+4: code block
+5: code block
+6: code block
+7: code block
+8: code block
+9: code block
+10: code block
+11: code block
+12: code block
+13: code block
+                    ```
+</script>
+          </section>
+          
+          <section class="code20lines" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+                    # Code blocks
+    
+                    This slide uses class:
+    
+                    ```kotlin
+                    classes = "code20lines "
+                    ```
+    
+                    Predefined heights:
+    
+                    `5, 10, 13, 15, 20, 25, 30, 35`
+    
+                    ```plaintext
+                    1: another code block
+2: another code block
+3: another code block
+4: another code block
+5: another code block
+6: another code block
+7: another code block
+8: another code block
+9: another code block
+10: another code block
+11: another code block
+12: another code block
+13: another code block
+14: another code block
+15: another code block
+16: another code block
+17: another code block
+18: another code block
+19: another code block
+20: another code block
+                    ```
+</script>
+          </section>
+          
+        </section>
+        
+        <section>
+          <section>
+            <h1>YouTube embed: yt()</h1>
+            <iframe allow="autoplay; encrypted-media; fullscreen 'none'; picture-in-picture 'none'" class="illustration" src="https://www.youtube.com/embed/JMJXvsCLu6s?start=17&amp;end=50&amp;mute=1&amp;controls=0&amp;fs=0&amp;autoplay=1&amp;cc_load_policy=0" title="Wildebeest &copy; Birdbox Studio"></iframe>
+            <p>Basic usage: yt(videoId, title)</p>
+            <p>With options: yt(videoId, title, start = 10, stop = 60, autoplay = true, captions = YtCaptions.EN)</p>
+          </section>
+          
+          <section class="has_tip" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+> * first blockquote
+> * before the heading
+> * slide class: `has_tip`
+
+# Side note
+
+A slide can use the first blockquote as a right-side note.
+* first blockquote
+* before the heading
+* slide class: `has_tip`
+* uses `absolute` positioning
+  * no html override protection :(
+* The rendered note is visible on the right side of this slide.
+</script>
+          </section>
+          
+          <section class="has_tip tip_at_line_17">
+            <blockquote>
+              <p>Tip positioned lower</p>
+              <p>using CSS override</p>
+            </blockquote>
+            <h1>Side note: custom position</h1>
+            <p>Override tip vertical position with extra CSS class and custom rule:</p>
+            <pre>              <code>css += ""\"
+    .has_tip.tip_at_line_17 &gt; blockquote:nth-child(1) {
+      bottom: auto;
+      top: 17em;
+    }
+""\"</code>
+            </pre>
+            <p>Then use: classes = "has_tip tip_at_line_17"</p>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Vertical spacing
+
+`vspace()` helper adds vertical spacing.
+
+___
+`vspace()`
+
+<span class="vspace" style="height: 1em"></span>
+___
+
+`vspace(3)`
+
+<span class="vspace" style="height: 3em"></span>
+___
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Special characters
+
+| Constant                           | Result                                            |
+|------------------------------------|---------------------------------------------------|
+| `charHellip`                       | …                                     |
+| `charLt`, `charGt`                 | < >                               |
+| `charEnDash`                       | –                                     |
+| `charEmDash`                       | —                                     |
+| `charLQuotation`, `charRQuotation` | « »               |
+| `charCopyright`                    | ©                                  |
+| `charLArrow`, `charRArrow`         | ← →                       |
+| `charLongLArrow`, `charLongRArrow` | ⟵ ⟶               |
+| `charBR`                           | two trailing spaces used for Markdown line breaks |
+| emoticons: 👏 🤗 ❤️               | just use                                          |
+</script>
+          </section>
+          
+        </section>
+        
+        <section>
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Illustrations helper
+
+```kotlin
+illustration("diagram.png")
+
+illustration(
+    name = "diagram.png",
+    alt = "diagram",
+    side = IllustrationSide.Left,
+    size = IllustrationSize.Large,
+    fragmentIndex = 1
+    effect = Effect.FADE_LEFT
+)
+```
+
+- Supperts fragments
+- Sizes
+  - normal: 400px
+  - small: 250px
+  - large: 500px
+- Sides
+  - right
+  - left
+
+---
+
+# QR images
+
+Images with `alt` starting with `qr` are styled as right-floating QR images.
+
+```markdown
+![qr-example](images/qr/example.png)
+```
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Samsung lettermark
+
+## Remember the rules for using lettermark
+
+- Samsung lettermarks are available in three colors
+- image files are located in `images/lettermark/`
+- filenames: `Samsung_(BLUE|BLACK|WHITE).png`
+
+| Variant | Image                                                                                                          |
+|:-------:|:--------------------------------------------------------------------------------------------------------------:|
+| blue    | ![Samsung_BLUE_png](images/lettermark/Samsung_BLUE.png)                                                        |
+| black   | ![Samsung_BLACK_png](images/lettermark/Samsung_BLACK.png)                                                      |
+| white   | <img alt="Samsung_WHITE_png" src="images/lettermark/Samsung_WHITE.png" style="background:#ccc; padding:0px"> |
+</script>
+          </section>
+          
+        </section>
+        
+        <section>
+          <section class="table_no_hlines" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Tables
+
+___
+
+## Formatting
+
+Table cells are vertically centered.
+
+___
+
+## Hide horizontal lines
+
+Use slide class `classes = "table_no_hlines"` to hide horizontal lines.
+
+| Name   | Value |
+|--------|-------|
+| first  | 1     |
+| second | 2     |
+| third  | 3     |
+</script>
+          </section>
+          
+          <section>
+            <h1>Two-column layout</h1>
+            <p>Use classes `multiColumn2` on container and `column2` on each column:</p>
+            <div class="multiColumn2">
+              <div class="column2">
+                <ul>
+                  <li>Left column</li>
+                  <li>item A</li>
+                  <li>item B</li>
+                  <li>item C</li>
+                </ul>
+              </div>
+              <div class="column2">
+                <ul>
+                  <li>Right column</li>
+                  <li>item X</li>
+                  <li>item Y</li>
+                  <li>item Z</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          
+        </section>
+        
+        <section>
+          <section class="has_tip">
+            <h1 class="r-fit-text">&#128079; Thank you &#129303;</h1>
+            <h2 class="r-fit-text">❤️❤️❤️ &#128150;&#128150;&#128150; &#127801;&#127801;&#127801; &#128150;&#128150;&#128150; ❤️❤️❤️</h2>
+            <hr>
+            <img alt="QR: https://github.sec.samsung.net/j-banaszczyk/ai-soul/" class="illustration large" src="images/qr-ai-soul.png">
+            <p>
+              <span class="color_blue block">&copy;'26 Jacek Banaszczyk</span>
+            </p>
+            <p>
+              <span class="color_blue block">j.banaszczyk@samsung.com</span>
+            </p>
+          </section>
+          
+        </section>
+        
+      </div>
+    </div>
+    	
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/onetimer/onetimer.js"></script>
+	<script src="revealjs/plugin/mouse-pointer/mouse-pointer.js"></script>
+	<script src="revealjs/plugin/elapsed-time-bar/elapsed-time-bar.js"></script>
+	<script src="revealjs/plugin/skip-fragments/skip-fragments.js"></script>
+	<script src="revealjs/plugin/notes/notes.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/plugin/markdown/markdown.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/clipboard/clipboard.js"></script>
+	<script src="revealjs/plugin/copycode/copycode.js"></script>
+	<script src="revealjs/plugin/menu/menu.js"></script>
+
+	<script>
+		Reveal.initialize({
+			minScale: 0.01,
+			maxScale: 5.0,
+			width: 1920,
+			height: 1080,
+			progress: true,
+			mouseWheel: false,
+			center: false,
+			margin: 0.01,
+			history: true,
+			transition: 'fade',
+			transitionSpeed: 'fast',
+
+			slideNumber: 'c/t',
+
+			scrollLayout: 'full',
+
+			scrollProgress: 'auto',
+
+			scrollActivationWidth: 1,
+
+			scrollSnap: 'mandatory',
+
+			menu: {
+				numbers: true
+			},
+			
+			copycode: {
+				timeout: 3000,
+				copy: 'Copy',
+				copied: 'Copied!',
+				copybg: '#FFB546',
+				copiedbg: '#FFB546'
+			},
+			
+			oneTimer: { immediateMode: false },
+			elapsedTimeBar: { allowedTime: 20 },
+			plugins: [ RevealNotes, RevealZoom, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX, RevealMenu, CopyCode, OneTimer, MousePointer, ElapsedTimeBar, SkipFragments ]
+		});
+
+</script>
+  </body>
+</html>
+

@@ -1,0 +1,18 @@
+[versions]
+ben-manes-versions = "0.54.0"
+detekt = "2.0.0-alpha.3"
+gradle = "9.5.0"
+jvm = "17"
+kotlin = "2.3.21"
+kslides = "1.0.3-JB"
+shadow = "9.4.1"
+
+[libraries]
+kslides-core = { module = "com.kslides:kslides-core", version.ref = "kslides" }
+kslides-letsplot = { module = "com.kslides:kslides-letsplot", version.ref = "kslides" }
+
+[plugins]
+ben-manes-versions = { id = "com.github.ben-manes.versions", version.ref = "ben-manes-versions" }
+detekt = { id = "dev.detekt", version.ref = "detekt" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }

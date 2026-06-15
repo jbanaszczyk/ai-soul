@@ -1,0 +1,365 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": 400,
+  "height": 400,
+  "padding": 10,
+  "params": [
+    {
+      "name": "size",
+      "value": 2
+    },
+    {
+      "name": "r",
+      "value": 0.3
+    },
+    {
+      "name": "triangleY",
+      "value": 0.18
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "x",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          -1.25,
+          1.25
+        ],
+        "nice": false,
+        "zero": false
+      },
+      "axis": null
+    },
+    "y": {
+      "field": "y",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          -1.2,
+          1.15
+        ],
+        "nice": false,
+        "zero": false
+      },
+      "axis": null
+    }
+  },
+  "layer": [
+    {
+      "name": "triangle",
+      "data": {
+        "values": [
+          {
+            "vertex": "A",
+            "order": 1
+          },
+          {
+            "vertex": "B",
+            "order": 2
+          },
+          {
+            "vertex": "C",
+            "order": 3
+          },
+          {
+            "vertex": "A",
+            "order": 4
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "datum.vertex == 'A' ? 0 : datum.vertex == 'B' ? -size / 2 : size / 2",
+          "as": "x"
+        },
+        {
+          "calculate": "datum.vertex == 'A' ? -size / sqrt(3) + triangleY : size / (2 * sqrt(3)) + triangleY",
+          "as": "y"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5,
+        "strokeDash": [
+          6,
+          6
+        ],
+        "color": "#1428A0"
+      },
+      "encoding": {
+        "order": {
+          "field": "order",
+          "type": "ordinal"
+        }
+      }
+    },
+    {
+      "name": "spokes",
+      "data": {
+        "values": [
+          {
+            "segment": "A",
+            "point": "inner",
+            "order": 1
+          },
+          {
+            "segment": "A",
+            "point": "vertex",
+            "order": 2
+          },
+          {
+            "segment": "B",
+            "point": "inner",
+            "order": 1
+          },
+          {
+            "segment": "B",
+            "point": "vertex",
+            "order": 2
+          },
+          {
+            "segment": "C",
+            "point": "inner",
+            "order": 1
+          },
+          {
+            "segment": "C",
+            "point": "vertex",
+            "order": 2
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "datum.segment == 'A' ? 0 : datum.segment == 'B' ? -size / 2 : size / 2",
+          "as": "vx"
+        },
+        {
+          "calculate": "datum.segment == 'A' ? -size / sqrt(3) : size / (2 * sqrt(3))",
+          "as": "vy"
+        },
+        {
+          "calculate": "size / sqrt(3)",
+          "as": "radius"
+        },
+        {
+          "calculate": "datum.point == 'inner' ? datum.vx * r / datum.radius : datum.vx",
+          "as": "x"
+        },
+        {
+          "calculate": "datum.point == 'inner' ? datum.vy * r / datum.radius + triangleY : datum.vy + triangleY",
+          "as": "y"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5,
+        "strokeDash": [
+          3,
+          6
+        ],
+        "color": "#1428A0"
+      },
+      "encoding": {
+        "detail": {
+          "field": "segment"
+        },
+        "order": {
+          "field": "order",
+          "type": "ordinal"
+        }
+      }
+    },
+    {
+      "name": "emoji-labels",
+      "data": {
+        "values": [
+          {
+            "x": -1,
+            "y": 1,
+            "label": "🗨️💬"
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "label": "📜📜"
+          },
+          {
+            "x": 0,
+            "y": -1.14,
+            "label": "👉👈"
+          },
+          {
+            "x": 0,
+            "y": 0.13,
+            "label": "🤔"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "sans-serif",
+        "fontSize": 72,
+        "fontWeight": "normal",
+        "color": "black",
+        "baseline": "middle",
+        "align": "center"
+      },
+      "encoding": {
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "name": "left-side-label",
+      "data": {
+        "values": [
+          {
+            "x": -0.99,
+            "y": 0.65,
+            "label": "natural language"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Samsung Sharp Sans",
+        "fontSize": 24,
+        "fontWeight": "normal",
+        "color": "#1428A0",
+        "baseline": "middle",
+        "align": "center",
+        "angle": 0
+      },
+      "encoding": {
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "name": "right-side-label",
+      "data": {
+        "values": [
+          {
+            "x": 0.91,
+            "y": 0.65,
+            "label": "structural JSON"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Samsung Sharp Sans",
+        "fontSize": 24,
+        "fontWeight": "normal",
+        "color": "#1428A0",
+        "baseline": "middle",
+        "align": "center",
+        "angle": 0
+      },
+      "encoding": {
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "name": "bottom-label",
+      "data": {
+        "values": [
+          {
+            "x": -0.6,
+            "y": -0.8,
+            "label": "shyness"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Samsung Sharp Sans",
+        "fontSize": 22,
+        "fontWeight": "normal",
+        "color": "#1428A0",
+        "baseline": "middle",
+        "align": "center"
+      },
+      "encoding": {
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "name": "right-arrow-line",
+      "data": {
+        "values": [
+          {
+            "vertex": "A",
+            "order": 1
+          },
+          {
+            "vertex": "C",
+            "order": 2
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "datum.vertex == 'A' ? 0 : size / 2",
+          "as": "x"
+        },
+        {
+          "calculate": "datum.vertex == 'A' ? -size / sqrt(3) + triangleY : size / (2 * sqrt(3)) + triangleY",
+          "as": "y"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 5,
+        "color": "#00C3B2"
+      },
+      "encoding": {
+        "order": {
+          "field": "order",
+          "type": "ordinal"
+        }
+      }
+    },
+    {
+      "name": "right-arrow-head",
+      "data": {
+        "values": [
+          {
+            "vertex": "C"
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "size / 2",
+          "as": "x"
+        },
+        {
+          "calculate": "size / (2 * sqrt(3)) + triangleY",
+          "as": "y"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "shape": "triangle",
+        "filled": true,
+        "size": 250,
+        "color": "#00C3B2",
+        "angle": 30
+      }
+    }
+  ]
+}

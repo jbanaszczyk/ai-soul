@@ -1,0 +1,124 @@
+/* These CSS settings are embedded directly in the presentation html */
+
+@font-face {
+    font-family: 'CommitMono';
+    src: url('./fonts/CommitMono/CommitMono-450-Regular.otf') format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CommitMono';
+    src: url('./fonts/CommitMono/CommitMono-450-Italic.otf') format("opentype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'CommitMono';
+    src: url('./fonts/CommitMono/CommitMono-700-Regular.otf') format("opentype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CommitMono';
+    src: url('./fonts/CommitMono/CommitMono-700-Italic.otf') format("opentype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SamsungSSBody';
+    src: url('./fonts/SamsungSS/SamsungSSBody-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SamsungSSBody';
+    src: url('./fonts/SamsungSS/SamsungSSBody-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SamsungSSBody';
+    src: url('./fonts/SamsungSS/SamsungSSBody-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SamsungSSHead';
+    src: url('./fonts/SamsungSS/SamsungSSHead-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SamsungSSHead';
+    src: url('./fonts/SamsungSS/SamsungSSHead-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SamsungSSHead';
+    src: url('./fonts/SamsungSS/SamsungSSHead-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SamsungSSHead';
+    src: url('./fonts/SamsungSS/SamsungSSHead-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+.reveal {
+    /* Required by Samsung Style guide */
+    font-variant-ligatures: none;
+    font-kerning: none;
+    text-wrap: pretty;
+}
+
+.reveal code {
+    /* Use CommitMono code ligatures */
+    font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+}
+
+/* This prevents auto-capitalization of headers */
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    text-transform: none;
+}
+
+a.top-left {
+    position: absolute;
+    z-index: 1;
+    width: clamp(50px, 8vmax, 80px);
+    line-height: 0;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+a.top-left path {
+    fill: #258bd2;
+}
+
+a.top-left:hover {
+    color: white;
+}
+
+a.top-right {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+}

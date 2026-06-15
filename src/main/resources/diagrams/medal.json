@@ -1,0 +1,492 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "width": 600,
+  "height": 600,
+  "padding": 10,
+  "autosize": "none",
+  "signals": [
+    {
+      "name": "cx",
+      "value": 300
+    },
+    {
+      "name": "cy",
+      "value": 300
+    },
+    {
+      "name": "r",
+      "value": 290
+    },
+    {
+      "name": "innerR",
+      "update": "r - 28"
+    },
+    {
+      "name": "triangleR",
+      "update": "innerR - 2"
+    },
+    {
+      "name": "lineWidth",
+      "value": 6
+    },
+    {
+      "name": "triangleOffset",
+      "value": -1
+    },
+    {
+      "name": "topStartDeg",
+      "value": -90
+    },
+    {
+      "name": "topEndDeg",
+      "value": 90
+    },
+    {
+      "name": "topCount",
+      "value": 21
+    },
+    {
+      "name": "bottomStartDeg",
+      "value": -80
+    },
+    {
+      "name": "bottomEndDeg",
+      "value": 80
+    },
+    {
+      "name": "bottomCount",
+      "value": 27
+    }
+  ],
+  "data": [
+    {
+      "name": "topLetters",
+      "values": [
+        {
+          "i": 0,
+          "c": "V"
+        },
+        {
+          "i": 1,
+          "c": "i"
+        },
+        {
+          "i": 2,
+          "c": "b"
+        },
+        {
+          "i": 3,
+          "c": "e"
+        },
+        {
+          "i": 4,
+          "c": "s"
+        },
+        {
+          "i": 5,
+          "c": "-"
+        },
+        {
+          "i": 6,
+          "c": "B"
+        },
+        {
+          "i": 7,
+          "c": "a"
+        },
+        {
+          "i": 8,
+          "c": "s"
+        },
+        {
+          "i": 9,
+          "c": "e"
+        },
+        {
+          "i": 10,
+          "c": "d"
+        },
+        {
+          "i": 11,
+          "c": " "
+        },
+        {
+          "i": 12,
+          "c": "S"
+        },
+        {
+          "i": 13,
+          "c": "o"
+        },
+        {
+          "i": 14,
+          "c": "l"
+        },
+        {
+          "i": 15,
+          "c": "u"
+        },
+        {
+          "i": 16,
+          "c": "t"
+        },
+        {
+          "i": 17,
+          "c": "i"
+        },
+        {
+          "i": 18,
+          "c": "o"
+        },
+        {
+          "i": 19,
+          "c": "n"
+        },
+        {
+          "i": 20,
+          "c": "s"
+        }
+      ],
+      "transform": [
+        {
+          "type": "formula",
+          "as": "deg",
+          "expr": "topStartDeg + (topEndDeg - topStartDeg) * datum.i / (topCount - 1)"
+        },
+        {
+          "type": "formula",
+          "as": "theta",
+          "expr": "(datum.deg - 90) * PI / 180"
+        },
+        {
+          "type": "formula",
+          "as": "x",
+          "expr": "cx + r * cos(datum.theta)"
+        },
+        {
+          "type": "formula",
+          "as": "y",
+          "expr": "cy + r * sin(datum.theta)"
+        },
+        {
+          "type": "formula",
+          "as": "angle",
+          "expr": "datum.deg"
+        }
+      ]
+    },
+    {
+      "name": "bottomLetters",
+      "values": [
+        {
+          "i": 0,
+          "c": "J"
+        },
+        {
+          "i": 1,
+          "c": "u"
+        },
+        {
+          "i": 2,
+          "c": "s"
+        },
+        {
+          "i": 3,
+          "c": "t"
+        },
+        {
+          "i": 4,
+          "c": "i"
+        },
+        {
+          "i": 5,
+          "c": "f"
+        },
+        {
+          "i": 6,
+          "c": "i"
+        },
+        {
+          "i": 7,
+          "c": "c"
+        },
+        {
+          "i": 8,
+          "c": "a"
+        },
+        {
+          "i": 9,
+          "c": "t"
+        },
+        {
+          "i": 10,
+          "c": "i"
+        },
+        {
+          "i": 11,
+          "c": "o"
+        },
+        {
+          "i": 12,
+          "c": "n"
+        },
+        {
+          "i": 13,
+          "c": "e"
+        },
+        {
+          "i": 14,
+          "c": "s"
+        },
+        {
+          "i": 15,
+          "c": " "
+        },
+        {
+          "i": 16,
+          "c": "a"
+        },
+        {
+          "i": 17,
+          "c": "n"
+        },
+        {
+          "i": 18,
+          "c": "e"
+        },
+        {
+          "i": 19,
+          "c": "c"
+        },
+        {
+          "i": 20,
+          "c": "d"
+        },
+        {
+          "i": 21,
+          "c": "o"
+        },
+        {
+          "i": 22,
+          "c": "t"
+        },
+        {
+          "i": 23,
+          "c": "i"
+        },
+        {
+          "i": 24,
+          "c": "c"
+        },
+        {
+          "i": 25,
+          "c": "a"
+        },
+        {
+          "i": 26,
+          "c": "e"
+        }
+      ],
+      "transform": [
+        {
+          "type": "formula",
+          "as": "deg",
+          "expr": "bottomStartDeg + (bottomEndDeg - bottomStartDeg) * datum.i / (bottomCount - 1)"
+        },
+        {
+          "type": "formula",
+          "as": "theta",
+          "expr": "(90 - datum.deg) * PI / 180"
+        },
+        {
+          "type": "formula",
+          "as": "x",
+          "expr": "cx + r * cos(datum.theta)"
+        },
+        {
+          "type": "formula",
+          "as": "y",
+          "expr": "cy + r * sin(datum.theta)"
+        },
+        {
+          "type": "formula",
+          "as": "angle",
+          "expr": "-datum.deg"
+        }
+      ]
+    },
+    {
+      "name": "triangle",
+      "values": [
+        {
+          "i": 0,
+          "angle": 210
+        },
+        {
+          "i": 1,
+          "angle": 330
+        },
+        {
+          "i": 2,
+          "angle": 90
+        },
+        {
+          "i": 3,
+          "angle": 210
+        }
+      ],
+      "transform": [
+        {
+          "type": "formula",
+          "as": "theta",
+          "expr": "datum.angle * PI / 180"
+        },
+        {
+          "type": "formula",
+          "as": "x",
+          "expr": "cx + triangleR * cos(datum.theta) + triangleOffset"
+        },
+        {
+          "type": "formula",
+          "as": "y",
+          "expr": "cy + triangleR * sin(datum.theta) + triangleOffset"
+        }
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "arc",
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "cx"
+          },
+          "y": {
+            "signal": "cy"
+          },
+          "startAngle": {
+            "value": 0
+          },
+          "endAngle": {
+            "signal": "2 * PI"
+          },
+          "innerRadius": {
+            "signal": "innerR"
+          },
+          "outerRadius": {
+            "signal": "innerR"
+          },
+          "stroke": {
+            "value": "#1428A0"
+          },
+          "strokeWidth": {
+            "signal": "lineWidth"
+          },
+          "fill": {
+            "value": null
+          }
+        }
+      }
+    },
+    {
+      "type": "line",
+      "from": {
+        "data": "triangle"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "field": "x"
+          },
+          "y": {
+            "field": "y"
+          },
+          "stroke": {
+            "value": "#1428A0"
+          },
+          "strokeWidth": {
+            "signal": "lineWidth"
+          },
+          "fill": {
+            "value": null
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "topLetters"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "field": "x"
+          },
+          "y": {
+            "field": "y"
+          },
+          "text": {
+            "field": "c"
+          },
+          "angle": {
+            "field": "angle"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "font": {
+            "value": "CommitMono"
+          },
+          "fontSize": {
+            "value": 60
+          },
+          "fill": {
+            "value": "#1428A0"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "bottomLetters"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "field": "x"
+          },
+          "y": {
+            "field": "y"
+          },
+          "text": {
+            "field": "c"
+          },
+          "angle": {
+            "field": "angle"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "font": {
+            "value": "CommitMono"
+          },
+          "fontSize": {
+            "value": 32
+          },
+          "fill": {
+            "value": "#0077C8"
+          }
+        }
+      }
+    }
+  ]
+}

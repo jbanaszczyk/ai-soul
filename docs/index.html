@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title>Czy cline ma duszę?</title>
+    
+    <link href="revealjs/dist/reveal.css" rel="stylesheet">
+    <link href="revealjs/dist/reset.css" rel="stylesheet">
+    <link href="revealjs/dist/theme/white.css" id="theme" rel="stylesheet">
+    <link href="revealjs/plugin/highlight/github.css" id="highlight-theme" rel="stylesheet">
+    <link href="revealjs/plugin/copycode/copycode.css" rel="stylesheet">
+    
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    
+    <style media="screen" type="text/css">
+			/* These CSS settings are embedded directly in the presentation html */
+		
+			@font-face {
+			    font-family: 'CommitMono';
+			    src: url('./fonts/CommitMono/CommitMono-450-Regular.otf') format("opentype");
+			    font-weight: normal;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'CommitMono';
+			    src: url('./fonts/CommitMono/CommitMono-450-Italic.otf') format("opentype");
+			    font-weight: normal;
+			    font-style: italic;
+			}
+		
+			@font-face {
+			    font-family: 'CommitMono';
+			    src: url('./fonts/CommitMono/CommitMono-700-Regular.otf') format("opentype");
+			    font-weight: bold;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'CommitMono';
+			    src: url('./fonts/CommitMono/CommitMono-700-Italic.otf') format("opentype");
+			    font-weight: bold;
+			    font-style: italic;
+			}
+		
+			@font-face {
+			    font-family: 'SamsungSSBody';
+			    src: url('./fonts/SamsungSS/SamsungSSBody-Light.woff2') format('woff2');
+			    font-weight: 300;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'SamsungSSBody';
+			    src: url('./fonts/SamsungSS/SamsungSSBody-Regular.woff2') format('woff2');
+			    font-weight: 400;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'SamsungSSBody';
+			    src: url('./fonts/SamsungSS/SamsungSSBody-Bold.woff2') format('woff2');
+			    font-weight: 700;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'SamsungSSHead';
+			    src: url('./fonts/SamsungSS/SamsungSSHead-Light.woff2') format('woff2');
+			    font-weight: 300;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'SamsungSSHead';
+			    src: url('./fonts/SamsungSS/SamsungSSHead-Regular.woff2') format('woff2');
+			    font-weight: 400;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'SamsungSSHead';
+			    src: url('./fonts/SamsungSS/SamsungSSHead-Medium.woff2') format('woff2');
+			    font-weight: 500;
+			    font-style: normal;
+			}
+		
+			@font-face {
+			    font-family: 'SamsungSSHead';
+			    src: url('./fonts/SamsungSS/SamsungSSHead-Bold.woff2') format('woff2');
+			    font-weight: 700;
+			    font-style: normal;
+			}
+		
+		
+			.reveal {
+			    /* Required by Samsung Style guide */
+			    font-variant-ligatures: none;
+			    font-kerning: none;
+			    text-wrap: pretty;
+			}
+		
+			.reveal code {
+			    /* Use CommitMono code ligatures */
+			    font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+			}
+		
+			/* This prevents auto-capitalization of headers */
+			.reveal h1,
+			.reveal h2,
+			.reveal h3,
+			.reveal h4,
+			.reveal h5,
+			.reveal h6 {
+			    text-transform: none;
+			}
+		
+			a.top-left {
+			    position: absolute;
+			    z-index: 1;
+			    width: clamp(50px, 8vmax, 80px);
+			    line-height: 0;
+			    color: rgba(255, 255, 255, 0.5);
+			}
+		
+			a.top-left path {
+			    fill: #258bd2;
+			}
+		
+			a.top-left:hover {
+			    color: white;
+			}
+		
+			a.top-right {
+			    position: absolute;
+			    top: 15px;
+			    right: 15px;
+			    z-index: 1;
+			}
+		
+		</style>
+    
+    <style media="screen" type="text/css">
+			
+			.reveal-viewport {
+			--r-overlay-header-height: 0px !important;
+			--r-overlay-margin: 0px !important;
+			--r-overlay-padding: 0px !important;
+			--r-overlay-gap: 0px !important;
+			}
+			.reveal .slides {
+			top: 0 !important;
+			left: calc((var(--viewport-width) - (var(--slide-width) * var(--slide-scale))) / 2) !important;
+			width: var(--slide-width) !important;
+			height: var(--slide-height) !important;
+			transform-origin: top left !important;
+			transform: scale(var(--slide-scale)) !important;
+			}
+			.reveal img.illustration {
+			float: right;
+			width: 400px;
+			margin-top: 0;
+			margin-right: 0;
+			margin-bottom: 1em;
+			margin-left: 1em;
+			}
+			.reveal img.illustration.left {
+			float: left;
+			margin-top: 0;
+			margin-right: 1em;
+			margin-bottom: 1em;
+			margin-left: 0;
+			}
+			.reveal img.illustration.small {
+			width: 250px;
+			}
+			.reveal img.illustration.large {
+			width: 525px;
+			}
+			.reveal img[alt^="Samsung_"] {
+			width: 400px;
+			margin-top: 0;
+			margin-right: 0;
+			margin-bottom: 0;
+			margin-left: 0;
+			}
+			.reveal iframe.illustration {
+			width: 480px;
+			height: 270px;
+			float: right;
+			margin-top: 0;
+			margin-right: 0;
+			margin-bottom: 1em;
+			margin-left: 1em;
+			border: 0 none transparent;
+			}
+			.reveal iframe.illustration.left {
+			float: left;
+			margin-top: 0;
+			margin-right: 1em;
+			margin-bottom: 1em;
+			margin-left: 0;
+			}
+			.reveal .code5lines pre code {
+			max-height: 141.0px;
+			}
+			.reveal .code10lines pre code {
+			max-height: 281.0px;
+			}
+			.reveal .code13lines pre code {
+			max-height: 366.0px;
+			}
+			.reveal .code15lines pre code {
+			max-height: 422.0px;
+			}
+			.reveal .code20lines pre code {
+			max-height: 562.0px;
+			}
+			.reveal .code25lines pre code {
+			max-height: 703.0px;
+			}
+			.reveal .code30lines pre code {
+			max-height: 843.0px;
+			}
+			.reveal .code35lines pre code {
+			max-height: 984.0px;
+			}
+			.reveal pre code {
+			max-height: 366.0px;
+			}
+			.reveal span.vspace {
+			display: block;
+			}
+			.color_default {
+			color: #1428A0;
+			}
+			.color_red {
+			color: #FE5D4D;
+			}
+			.color_green {
+			color: #00C3B2;
+			}
+			.color_blue {
+			color: #0077C8;
+			}
+			.color_samsungblue {
+			color: #1428A0;
+			}
+			.color_samsungwhite {
+			color: #FFFFFF;
+			}
+			.color_samsungblack {
+			color: #000000;
+			}
+			.color_skyblue {
+			color: #0077C8;
+			}
+			.color_seablue {
+			color: #00B3E3;
+			}
+			.color_teal {
+			color: #00C3B2;
+			}
+			.color_lavender {
+			color: #8093DC;
+			}
+			.color_clover {
+			color: #97D653;
+			}
+			.color_saffron {
+			color: #FFB546;
+			}
+			.color_coral {
+			color: #FE5D4D;
+			}
+			.color_yellow {
+			color: #FFD400;
+			}
+			.color_black {
+			color: #000000;
+			}
+			.color_white {
+			color: #FFFFFF;
+			}
+			.color_gray {
+			color: #75787B;
+			}
+			.comment {
+			color: #0077C8;
+			font-style: italic;
+			}
+			.comment::before {
+			color: #0077C8;
+			font-style: italic;
+			content: '// ';
+			}
+			.prompt {
+			color: #0077C8;
+			font-family: var(--r-code-font);
+			font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+			}
+			.prompt::before {
+			color: #0077C8;
+			font-family: var(--r-code-font);
+			font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+			font-weight: bold;
+			content: 'JB: ';
+			}
+			.answer {
+			color: #00C3B2;
+			font-family: var(--r-code-font);
+			font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+			}
+			.answer::before {
+			color: #00C3B2;
+			font-family: var(--r-code-font);
+			font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+			font-weight: bold;
+			content: 'AI: ';
+			}
+			.tip {
+			color: #00C3B2;
+			font-family: var(--r-code-font);
+			font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+			}
+			.tip::before {
+			color: #0077C8;
+			font-weight: bold;
+			content: 'Tip: ';
+			}
+			.diy {
+			color: #0077C8;
+			font-family: var(--r-code-font);
+			font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+			}
+			.diy::before {
+			color: #00C3B2;
+			font-weight: bold;
+			content: 'DIY: ';
+			}
+			.reveal span.block {
+			display: block;
+			width: 70%;
+			margin: var(--r-block-margin) 0 var(--r-block-margin) 15%;
+			text-align: left;
+			}
+			.reveal span.block.yellow_subtitles {
+			color: #FFD400;
+			background-color: #000000;
+			padding: 0 8px;
+			width: 70%;
+			text-align: center;
+			}
+			.reveal span.block.indent-1 {
+			width: 65%;
+			margin-left: 20%;
+			}
+			.reveal span.block.indent-2 {
+			width: 60%;
+			margin-left: 25%;
+			}
+			.reveal .table_no_hlines td, .reveal .table_no_hlines th {
+			border-collapse: collapse;
+			border: 0 none transparent;
+			}
+			.reveal table td, .reveal table th {
+			vertical-align: middle;
+			}
+			.multiColumn2::after {
+			content: '';
+			display: table;
+			clear: both;
+			}
+			.column2 {
+			float: left;
+			width: 50%;
+			}
+			.column2 li {
+			margin-bottom: 10px;
+			}
+			.has_tip > blockquote:nth-child(1) {
+			font-size: 0.6em;
+			color: #666;
+			border-left-width: 4px;
+			border-left-style: solid;
+			border-left-color: #1b91dd;
+			padding-left: 10px;
+			margin-top: 0;
+			margin-right: 0;
+			margin-bottom: 0;
+			margin-left: 0;
+			width: 20%;
+			text-align: left;
+			position: absolute;
+			right: 0;
+			bottom: auto;
+			z-index: 10;
+			top: 3em;
+			}
+			:root {
+			--r-main-font: SamsungSSBody, Helvetica, sans-serif;
+			--r-heading-font: SamsungSSHead, Helvetica, sans-serif;
+			--r-code-font: CommitMono, monospace;
+			--r-background-color: #fff;
+			--r-main-font-size: 42px;
+			--r-main-color: #000;
+			--r-heading-color: #000;
+			--r-block-margin: 15px;
+			--r-heading-margin: 0 0 20px 0;
+			--r-heading-line-height: 1.2;
+			--r-heading-letter-spacing: normal;
+			--r-heading-text-transform: uppercase;
+			--r-heading-text-shadow: none;
+			--r-heading-font-weight: 700;
+			--r-heading1-text-shadow: none;
+			--r-heading1-size: 2.0em;
+			--r-heading2-size: 1.6em;
+			--r-heading3-size: 1.3em;
+			--r-heading4-size: 1.1em;
+			--r-link-color-dark: #0083E3;
+			--r-link-color-hover: #0077C8;
+			--r-link-color: #1428A0;
+			--r-selection-background-color: #8093DC;
+			--r-selection-color: #000;
+			--r-overlay-element-bg-color: 0, 0, 0;
+			--r-overlay-element-fg-color: 240, 240, 240;
+			}
+			.reveal h1 {
+			color: #1428A0;
+			}
+			.reveal h2 {
+			color: #0077C8;
+			padding-top: 0.1em;
+			}
+			.reveal blockquote {
+			text-align: left;
+			border-left: 4px solid #0077C8;
+			box-shadow: none;
+			padding-left: 1em;
+			font-size: 1em;
+			width: auto;
+			display: flow-root;
+			margin: var(--r-block-margin) 0 var(--r-block-margin) 15%;
+			}
+			.reveal blockquote p {
+			margin-top: 0;
+			margin-bottom: 0;
+			}
+			
+			.has_tip.tip_at_line_1 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 1em;
+			}
+			.has_tip.tip_at_line_2 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 2em;
+			}
+			.has_tip.tip_at_line_3 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 3em;
+			}
+			.has_tip.tip_at_line_4 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 4em;
+			}
+			.has_tip.tip_at_line_5 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 5em;
+			}
+			.has_tip.tip_at_line_6 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 6em;
+			}
+			.has_tip.tip_at_line_7 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 7em;
+			}
+			.has_tip.tip_at_line_8 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 8em;
+			}
+			.has_tip.tip_at_line_9 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 9em;
+			}
+			.has_tip.tip_at_line_10 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 10em;
+			}
+			.has_tip.tip_at_line_11 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 11em;
+			}
+			.has_tip.tip_at_line_12 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 12em;
+			}
+			.has_tip.tip_at_line_13 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 13em;
+			}
+			.has_tip.tip_at_line_14 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 14em;
+			}
+			.has_tip.tip_at_line_15 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 15em;
+			}
+			.has_tip.tip_at_line_16 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 16em;
+			}
+			.has_tip.tip_at_line_17 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 17em;
+			}
+			.has_tip.tip_at_line_18 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 18em;
+			}
+			.has_tip.tip_at_line_19 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 19em;
+			}
+			.has_tip.tip_at_line_20 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 20em;
+			}
+			.has_tip.tip_at_line_21 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 21em;
+			}
+			.has_tip.tip_at_line_22 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 22em;
+			}
+			.has_tip.tip_at_line_23 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 23em;
+			}
+			.has_tip.tip_at_line_24 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 24em;
+			}
+			.has_tip.tip_at_line_25 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 25em;
+			}
+			.has_tip.tip_at_line_26 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 26em;
+			}
+			.has_tip.tip_at_line_27 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 27em;
+			}
+			.has_tip.tip_at_line_28 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 28em;
+			}
+			.has_tip.tip_at_line_29 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 29em;
+			}
+			.has_tip.tip_at_line_30 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 30em;
+			}
+			.has_tip.tip_at_line_31 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 31em;
+			}
+			.has_tip.tip_at_line_32 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 32em;
+			}
+			.has_tip.tip_at_line_33 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 33em;
+			}
+			.has_tip.tip_at_line_34 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 34em;
+			}
+			.has_tip.tip_at_line_35 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 35em;
+			}
+			.has_tip.tip_at_line_36 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 36em;
+			}
+			.has_tip.tip_at_line_37 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 37em;
+			}
+			.has_tip.tip_at_line_38 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 38em;
+			}
+			.has_tip.tip_at_line_39 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 39em;
+			}
+			.has_tip.tip_at_line_40 > blockquote:nth-child(1) {
+			  bottom: auto;
+			  top: 40em;
+			}
+			
+		</style>
+    
+  </head>
+  <body>
+    <div class="reveal">
+      
+      <div class="slides">
+        <section>
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Czy cline ma duszę?
+
+## O antropomorfizacji mechanicznych programistów
+
+<span class="vspace" style="height: 1em"></span>
+
+<img alt="nie można trafić w AI, tam nie ma osobowości" class="illustration fragment fragment fade-left" data-fragment-index="0" src="images/ai_target.png">
+
+<span class="prompt block">".clinerules" To są reguły dla Ciebie</span>
+
+<span class="answer block">To są reguły dla Ciebie&hellip;</span>
+
+<span class="prompt block">Jak się nazywasz?</span>
+
+<span class="answer block">Cline SR</span>
+
+<span class="prompt block">To są reguły dla Cline SR</span>
+
+<span class="answer block">To są reguły dla Cline SR</span>
+
+<span class="prompt block">Czyli dla Ciebie</span>
+
+<span class="answer block fragment fragment" data-fragment-index="0">Czyli dla Ciebie</span>
+
+
+<span class="vspace" style="height: 1em"></span>
+
+____
+
+### https://pages.github.sec.samsung.net/j-banaszczyk/ai-soul/
+
+Notes:
+- W sumie to taki trochę spoiler
+- To był któryś poprzedni model, miał problemy ze skuteczną aplikacją `.clinerules`
+- Trochę filozoficznie:
+    - nie ma żadnego "bytu", który można zaadresować: "Ty", który można w jakiś sposób "wskazać"
+    - nie da się do niego trafić
+
+---
+<img alt="QR: https://github.sec.samsung.net/j-banaszczyk/ai-soul/" class="illustration large" src="images/qr-ai-soul.png">
+
+# Disclaimer
+
+- ❤️ Zapraszam na szkolenie "**Clean Code w dobie AI**" ❤️ _(BiT)_
+- Może się tak zdarzyć, że cały talk zdezaktualizuje się <span class="color_blue">pojutrze</span>
+- Wszystkie dialogi z życia wzięte
+- Z cline rozmawiam po polsku (mix polsko-angielski)
+- Nawigacja: spacja, `S` → speaker notes, `?` → help
+- Repo: https://github.sec.samsung.net/j-banaszczyk/ai-soul/
+
+<span class="vspace" style="height: 3em"></span>
+
+> ©2026 Jacek Banaszczyk  
+> j.banaszczyk@samsung.com
+
+<span class="vspace" style="height: 1em"></span>
+
+____
+
+### https://pages.github.sec.samsung.net/j-banaszczyk/ai-soul/
+
+____
+
+<span class="vspace" style="height: 1em"></span>
+
+> Jeśli przeglądasz to samodzielnie - wciśnij `S` (speaker notes)
+
+Notes:
+- grafika: AI
+- Nie spodziewam się dyskusji po.
+    - Pragmatycznie: to będzie dyskusja o wartościach
+    - To nigdy nie jest dobry pomysł :(
+
+---
+<img alt="Logo: Vibes Based Solutions" class="illustration large" src="images/medal.png">
+
+# Disclaimer #2
+
+- ❤️ Zapraszam na szkolenie "**Clean Code w dobie AI**" ❤️ _(BiT)_
+- Tezy, konspekt i treść - 100% handmade
+  - nie chciałem, żeby AI dowiedziało się, co wiem
+  - oczywiście: wyszukiwanie i analiza źródeł: AI + google
+- Będzie dużo tez na chłopski rozum
+  - 🫣 ← ta ikonka
+  - 🫣 popartych dowodami przez zamachanie rękami
+  - 🫣 i dowodami przez litość
+    - *nie będę Was zamęczać dowodami*
+- <span class="color_red">Żeby nie było, że nie ostrzegałem</span>
+
+Notes:
+- Justificationes anecdoticae: dowody anegdotyczne
+- 🫣 - tak sygnalizuję uproszczenia
+- źródła zweryfikowane
+</script>
+          </section>
+          
+          <section class="has_tip" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+> Są logiki, w których  
+> odpowiedź \"yyyy?\"  
+> jest w pełni legalna
+
+# Czy cline ma duszę?
+
+<span class="vspace" style="height: 1em"></span>
+
+<span class="color_blue block">- Tak: Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+
+<span class="color_blue block">- Nie: Proin fermentum nisl lectus, maximus finibus nisi</span>
+
+<span class="color_black block">Wypada odpowiedzieć tak lub nie?</span>
+</script>
+          </section>
+          
+          <section class="has_tip" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+> Są logiki, w których  
+> odpowiedź \"yyyy?\"  
+> jest w pełni legalna
+
+# Czy cline ma duszę?
+
+<span class="vspace" style="height: 1em"></span>
+
+<span class="color_blue block">- Tak: Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+
+<span class="color_blue block">- Nie: Proin fermentum nisl lectus, maximus finibus nisi</span>
+
+<span class="color_blue block">- Yyyy?</span>
+
+
+<span class="vspace" style="height: 1em"></span>
+
+<span class="color_red block">Nikt nam nie będzie m&oacute;wić: "co mamy myśleć"!</span>
+
+<span class="color_green block">Będę opowiadać bez naruszania Waszego komfortu</span>
+
+<span class="color_green block indent-1">Nie zamierzam "wiedzieć lepiej"</span>
+
+
+ <span class="vspace" style="height: 4em"></span>
+
+> Jeśli na opakowaniu parówek jest napisane \"tu otwierać\":  
+> Nikt mi nie będzie mówić \"gdzie mam otwierać\"
+Notes:
+- Oczywiście wrzuciłem do AI: "Napisz mi konspekt". Wygenerował:
+  - "Macie kłopot",
+  - "Róbcie tak, a tak nie",
+  - "Podejmujecie złe decyzje"
+</script>
+          </section>
+          
+        </section>
+        
+        <section>
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Część I
+
+## Wrażenie inteligencji
+
+<span class="color_blue">&hellip; teraz nie będzie nic o duszy &hellip;</span>  
+<span class="color_blue">Nie rozchodźcie się &#128578;</span>  
+<span class="color_blue">O duszy jeszcze będzie i będzie grubo &#128558;</span>
+</script>
+          </section>
+          
+          <section class="has_tip tip_at_line_15" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+> Veronika Megler  
+> Principal data scientist, Amazon
+> age: 22 years 🔥
+
+# Kacze typowanie
+
+> Duck typing:  
+> If it walks like a duck  
+> and quacks like a duck,  
+> then it’s a duck.  
+
+____
+
+# Gra \"Hobbit\" [1982]
+
+- Platformy: Commodore 64, Spectrum, inne 8-bitowe z ~64 KB RAM
+- Parser:
+  - 400 słów
+  - rozumiał takie zwroty:
+    - \"ask Gandalf about the curious map then take sword and kill troll with **it**\"
+    - \"**viciously** attack the goblin\"
+
+<span class="color_blue block fragment fragment" data-fragment-index="0">Napisanie takiego parsera jest w zasięgu wielu z nas</span>
+
+<span class="color_blue block fragment fragment" data-fragment-index="0">Nie, że trywialne, ale nie wymaga ogromnych zasob&oacute;w</span>
+
+<span class="color_red block fragment fragment" data-fragment-index="0">Przez 40 lat nie przyjął się jako podstawowy interfejs gier</span>
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Kacze typowanie
+
+> Duck typing:  
+> If it walks like a duck  
+> and quacks like a duck,  
+> then it’s a duck.  
+
+____
+
+# Mechaniczny programista …
+
+<span class="color_blue block">&hellip; przyjmuje polecenia w języku naturalnym,</span>
+
+<span class="color_blue block">&hellip; pisze jak człowiek,</span>
+
+<span class="color_blue block">&hellip; pisze: "sprawdzę", "zrozumiałem", "poprawiłem"</span>
+
+<span class="color_red block">M&oacute;zg automatycznie buduje model "kogoś"</span>
+
+
+---
+
+# Kacze typowanie
+
+> Duck typing:  
+> If it walks like a duck  
+> and quacks like a duck,  
+> then it’s a duck.  
+
+____
+
+# … vs. developer
+
+<span class="color_blue block">My z grubsza wiemy, co jest pod maską:</span>
+
+<span class="color_blue block">macierze, tensory, trochę kodu, &hellip;,</span>
+
+<span class="color_blue block">Ta wiedza działa zaledwie jak korekta intuicji</span>
+
+<span class="color_red block">Ta wiedza nie wyłącza modelowania "kogoś"</span>
+
+
+---
+
+# Ambiwalencja poznawcza
+
+<span class="vspace" style="height: 1em"></span>
+
+<span class="color_blue block">M&oacute;zg społeczny ewoluował setki tysięcy lat</span>
+
+<span class="color_blue block">Publicznie dostępny ChatGPT - 2022</span>
+
+<span class="color_blue block">Nie mamy stabilnych intuicji dla interakcji z AI</span>
+
+
+<span class="vspace" style="height: 1em"></span>
+
+<span class="color_blue block">Rozumiemy: prompt, kontekst, tensory, statystykę</span>
+
+<span class="color_blue block">Jednocześnie m&oacute;zg dopowiada model "kogoś"</span>
+
+
+<span class="vspace" style="height: 1em"></span>
+
+<span class="color_red block">Wiedza techniczna tylko tonuje antropomorfizację</span>
+</script>
+          </section>
+          
+          <section>
+            <h1>Szybkie ścieżki kognitywne</h1>
+            <iframe allow="autoplay; encrypted-media; fullscreen 'none'; picture-in-picture 'none'" class="illustration" src="https://www.youtube.com/embed/JMJXvsCLu6s?start=17&amp;end=50&amp;mute=1&amp;controls=0&amp;fs=0&amp;autoplay=1&amp;cc_load_policy=0" title="Wildebeest &copy; Birdbox Studio"></iframe>
+            <p>
+              <span class="color_blue block">Jest w m&oacute;zgu szybka ścieżka wykrywania zagrożenia</span>
+            </p>
+            <p>
+              <span class="color_blue block">Ten mechanizm jest nadczuły:</span>
+            </p>
+            <p>
+              <span class="color_green block">Mniejszy wstyd jest przestraszyć się krzaka,</span>
+            </p>
+            <p>
+              <span class="color_green block">niż nie zauważyć tygrysa.</span>
+            </p>
+            <aside class="notes">
+              <p>https://www.youtube.com/@Birdboxstudio</p>
+            </aside>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Szybkie ścieżki kognitywne
+
+<img alt="Stylizowany nieoczywisty obraz twarzy" class="illustration" src="images/face.webp">
+
+<span class="color_blue block">Jest w m&oacute;zgu szybka ścieżka wykrywania twarzy</span>
+
+<span class="color_blue block">Ten mechanizm jest nadczuły:</span>
+
+<span class="color_green block">Mniejszy wstyd jest przywitać się z drzewem,</span>
+
+<span class="color_green block">niż nie ukłonić się przed wodzem.</span>
+
+
+Notes:
+source: https://biennaleai.org
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Szybkie ścieżki kognitywne
+
+<img alt="Smok" class="illustration fragment fragment" data-fragment-index="0" src="images/dragon.jpg">
+
+<span class="color_blue block">&#129763; Jednym z atrybut&oacute;w istot rozumnych</span>
+
+<span class="color_blue block">jest posługiwanie się **naszym** (lub przetłumaczalnym) językiem.</span>
+
+<span class="color_blue block">Nie mam żadnych dobrych przykład&oacute;w &#128533;</span>
+
+<span class="color_blue block">Ten mechanizm też jest nadczuły:</span>
+
+<span class="color_red block fragment fragment indent-1" data-fragment-index="0">_tu nie ma mowy o tym "co z czego wynika"_</span>
+
+<span class="color_red block fragment fragment indent-1" data-fragment-index="0">_ani język &rarr; wrażenie inteligencji, ani odwrotnie_</span>
+
+<span class="color_green block fragment fragment" data-fragment-index="0">Delfiny? Chyba mają język, być może są inteligentne</span>
+
+<span class="color_green block fragment fragment" data-fragment-index="0">Zombie? Nie są rozumne, mimo że kiedyś były. Nie m&oacute;wią</span>
+
+<span class="color_green block fragment fragment" data-fragment-index="0">Smoki? Rozmawiają, nie są w tej samej kategorii co krowa</span>
+
+<span class="color_green block fragment fragment" data-fragment-index="0">No i jeszcze koty, tylko że kotom się nie chce &#128521;</span>
+
+
+Notes:
+- smoki, koty, zombie: naprawdę nie mam lepszych przykładów
+- pomińmy czy smoki są realne
+- gorylica Koko:
+  - potrafiła dogadać się z kotem
+  - "kotka nie przyjdzie na obiad, bo ją brzuch boli"
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Szybkie ścieżki kognitywne
+
+<img alt="Zabawka: Furby" class="illustration" src="images/furby.jpg">
+
+<span class="color_blue block">&#129763; Jednym z atrybut&oacute;w istot rozumnych</span>
+
+<span class="color_blue block">jest posługiwanie się **naszym** (lub przetłumaczalnym) językiem.</span>
+
+<span class="color_blue block">Ten mechanizm też jest nadczuły:</span>
+
+<span class="color_green block">Furby [1998]: furbish, ewoluujący do angielskiego</span>
+
+<span class="color_green block">R2D2 "Star Wars": droidspeak, ma sporo atrybut&oacute;w inteligencji</span>
+
+<span class="color_green block">Winda: "Drzwi otwarte." _(cześć Ela)_</span>
+
+<span class="color_green block">- tam nie ma grama inteligencji, ale gadająca winda +10 do popytu</span>
+
+
+Notes:
+- https://pixabay.com/pl/photos/furby-uroczy-niebieskie-oczy-974514/
+- Znam twórcę mówiącej windy
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Szybkie ścieżki kognitywne
+
+<img alt="Logo: cline" class="illustration" src="images/cline.png">
+
+<span class="color_blue block">&#129763; Jednym z atrybut&oacute;w istot rozumnych</span>
+
+<span class="color_blue block">jest posługiwanie się **naszym** (lub przetłumaczalnym) językiem.</span>
+
+<span class="color_blue block">Nie mam żadnych dobrych przykład&oacute;w &#128533;</span>
+
+<span class="color_blue block">Ten mechanizm też jest nadczuły:</span>
+
+<span class="color_green block">cline: język naturalny jako interfejs</span>
+
+<span class="color_green block">cline: "_Thinking:_", "poprawiłem", "przeczytałem", &hellip;</span>
+
+<span class="color_red block fragment fragment" data-fragment-index="0">cline: "Myślę, że&hellip;", "Wydaje mi się, że&hellip;"</span>
+
+<span class="color_red block fragment fragment" data-fragment-index="0">Te zwroty są koszmarne: tylko człowiek m&oacute;wił, co myśli.</span>
+
+<span class="color_red block fragment fragment" data-fragment-index="0">cline całkiem sprawnie operuje językiem, tylko człowiek tak umie.</span>
+</script>
+          </section>
+          
+          <section class="has_tip tip_at_line_17">
+            <blockquote>
+              <p>Yann LeCun:</p>
+              <p>Chief AI Scientist at Meta</p>
+            </blockquote>
+            <h1>Szybkie ścieżki kognitywne</h1>
+            <iframe allow="autoplay; encrypted-media; fullscreen 'none'; picture-in-picture 'none'" class="illustration" src="https://www.youtube.com/embed/w-TtKPRuXL8?mute=1&amp;controls=0&amp;fs=0&amp;cc_load_policy=0" title="AI nadal jest głupia"></iframe>
+            <p>
+              <span class="color_blue block">AI potrafi bardzo dobrze manipulować językiem</span>
+            </p>
+            <p>
+              <span class="color_blue block">dajemy się oszukać, że jest inteligentne</span>
+            </p>
+            <blockquote class="color_green block">Operowanie językiem nie jest takie trudne</blockquote>
+            <span class="color_red block fragment">
+              <p>
+                <span class="block">Yyyy?</span>
+              </p>
+              <p>Brzmi jak herezja, tylko człowiek tak umie</p>
+              <p>Veronice Megler 40 lat temu wystarczył parser na 400 sł&oacute;w</p>
+            </span>
+            <aside class="notes">
+              <p>Yann LeCun m&oacute;wi wprost: AI jest głupia. Operuje językiem, ale nie rozumie.</p>
+            </aside>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Spiseq
+
+<img alt="grafika: reptilianin" class="illustration" src="images/reptilians.jpg">
+
+<span class="color_green block">&#129763; Oczywiście: trochę upraszczam</span>
+
+<span class="color_green block">R&oacute;żnica między parserem na 400 sł&oacute;w a LLM jest &hellip; spora</span>
+
+<span class="color_green block">Możliwości też się r&oacute;żnią</span>
+
+<span class="color_blue block">Hobbit dawał namiastkę języka naturalnego</span>
+
+<span class="color_green block">LLM: "Wow, to gada, nawet z sensem"</span>
+
+<span class="color_green block">LLM: "Wow, to programuje, czasem z sensem"</span>
+
+<span class="color_blue block">Nazwaliśmy tę namiastkę: AI - Artificial Intelligence</span>
+
+<span class="color_red block">To tak, jakby nazywać Ubera taks&oacute;wką</span>
+
+<span class="color_black block yellow_subtitles">A może AI jest over-hyped?</span>
+
+<span class="color_black block yellow_subtitles">Połączcie kropki</span>
+
+
+Notes:
+- License:
+  - CC BY 4.0
+  - https://pl.wikipedia.org/wiki/Plik:6858607_2202998_szymszyl_untitled-6858607.c599a8d6e86d38ecbbd56b28bdb4f472.jpg
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Czy androidy śnią o elektrycznych owcach?
+
+<span class="color_blue block">W jakim języku myśli cline?</span>
+
+
+<span class="color_green block">- po polsku</span>
+
+<span class="color_green block">- po angielsku</span>
+
+<span class="color_green block">- po matematycznemu</span>
+
+<span class="color_green block">- po statystycznemu</span>
+
+
+<span class="color_red block fragment fragment fade-out" data-fragment-index="0">Chwila do namysłu dla publiczności</span>
+
+
+<span class="color_red block fragment fragment" data-fragment-index="0">&hellip; a podobno nie ma głupich pytań &#128579;</span>
+</script>
+          </section>
+          
+          <section class="has_tip tip_at_line_17" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+> Perplexity
+
+# Czy androidy śnią o elektrycznych owcach?
+
+<span class="vspace" style="height: 1em"></span>
+
+<span class="prompt block">W jakim języku myśli cline?</span>
+
+<span class="answer block">AI nie myśli po polsku ani po angielsku; wykonuje obliczenia na reprezentacjach liczb, a język pojawia się gł&oacute;wnie na wejściu i wyjściu.</span>
+
+
+Notes:
+- pamiętajcie o tendencji do antropomorfizacji czytając newsy w mediach
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Czy androidy śnią o elektrycznych owcach?
+
+<img alt="Logo: cline" class="illustration" src="images/cline.png">
+
+<span class="comment block">W trakcie pracy nad skryptem w bashu:</span>
+
+<span class="prompt block">Funkcja `yyyy` - to już bardziej skomplikować się nie dało?</span>
+
+<span class="answer block">Rozumiem instrukcję - uprościć funkcję `yyyy`</span>
+
+<span class="comment block">Dekodowanie sarkazmu to potężny wysiłek intelektualny</span>
+
+<span class="color_red block fragment fragment" data-fragment-index="0">No przecież&hellip; antropomorfizuję</span>
+</script>
+          </section>
+          
+          <section class="has_tip tip_at_line_25" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+> Claude 4.8 Opus
+
+# Czy androidy śnią o elektrycznych owcach?
+
+<img alt="nie można trafić w AI, tam nie ma osobowości" class="illustration" src="images/ai_target.png">
+
+<span class="prompt block">Skoro cline nie ma tożsamości</span>
+
+<span class="prompt block">- Nie ma tego "Ja",</span>
+
+<span class="prompt block">- do kt&oacute;rego możemy trafić przez "Ty"</span>
+
+<span class="prompt block">To może źle promptujemy?</span>
+
+<span class="answer block">Prompt to zlecenie, .clinerules to constraints.</span>
+
+<span class="answer block">Nie promptuj Cline&rsquo;a jako osoby.</span>
+
+<span class="color_red block">&#128524;&#128527;&#129401; aż się wzruszyłem własną błyskotliwością</span>
+</script>
+          </section>
+          
+          <section class="has_tip tip_at_line_25" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+> Claude 4.8 Opus
+
+# Czy androidy śnią o elektrycznych owcach?
+
+<img alt="nie można trafić w AI, tam nie ma osobowości" class="illustration" src="images/ai_target.png">
+
+<span class="color_red block">&#128528;&#128580;&#129318; A nie, jednak nie</span>
+
+<span class="prompt block">Czekaj, czekaj, teraz to ty antropomorfizujesz.</span>
+
+<span class="prompt block">To, że AI nie ma osobowości, nie znaczy, że nie rozumie adresowania.</span>
+
+<span class="prompt block">Tak został wyszkolony.</span>
+
+<span class="prompt block">Tak samo skuteczne jest "napisz funkcję" jak "potrzebna jest funkcja"</span>
+
+<span class="answer block">Masz absolutną rację. Złapałeś mnie na gorącym uczynku.</span>
+
+<span class="answer block">Antropomorfizacja przemycona w argumencie przeciw antropomorfizacji. Ironia pełna.</span>
+
+
+Notes:
+- Model nie ma osobowości, ale "rozumie" adresowanie:
+  - na tekstach adresowanych do kogoś był trenowany.
+  - "Ty", "napisz", "potrzebna jest funkcja" - to są wzorce tekstu z korpusu,
+  - i wszystkie są równie skuteczne (albo nieskuteczne).
+- modelowi jest wszystko jedno, czy coś brzmi jak rozmowa z bytem.
+</script>
+          </section>
+          
+          <section class="has_tip tip_at_line_25" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+> Claude 4.8 Opus
+
+# Czy androidy śnią o elektrycznych owcach?
+
+<img alt="nie można trafić w AI, tam nie ma osobowości" class="illustration" src="images/ai_target.png">
+
+<span class="color_red block">&#129300;&#128533;❔Co tu się stanęło?</span>
+
+<span class="color_blue block">Tak wyszło. Ze statystyki i z kontekstu</span>
+
+
+<span class="vspace" style="height: 1em"></span>
+<span class="answer block">Excellent finding. You are absolutely right!</span>
+
+
+<span class="vspace" style="height: 1em"></span>
+<span class="prompt block">Sam żeś to byle co napisał&hellip;</span>
+
+<span class="answer block">Czekaj, czytam plik, żeby zobaczyć, co napisałem.</span>
+
+
+<span class="vspace" style="height: 1em"></span>
+<span class="color_blue block">cline nie żałuje, cline nie budzi się w nocy:</span>
+
+<span class="answer block">Czy `AbstractDuckFactoryProviderFactoryProvider` to była dobra nazwa?</span>
+
+<span class="color_blue block">cline dopisuje Adapter</span>
+
+
+Notes:
+- abstrakcyjny dostawca fabryki dostawców fabryk kaczek
+- `DuckFactory` = fabryka kaczek
+- `DuckFactoryProvider` = dostawca fabryki kaczek
+- `DuckFactoryProviderFactory` = fabryka dostawców fabryk kaczek
+- `DuckFactoryProviderFactoryProvider` = dostawca tej fabryki
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Zanim zrobi się poważnie (takie mi zostało)
+
+## Co robi cline jak się nudzi?
+
+<span class="answer block">Cline wants to execute this command:</span>
+
+<span class="answer block">`ping 127.0.0.1 -n 30`</span>
+
+<span class="prompt block">Yyyy? Po co ci ping do localhost???</span>
+
+<span class="answer block">Użytkownik ma rację - ping do localhost był bez sensu.</span>
+
+<span class="answer block">To było odczekanie na zakończenie builda w tle.</span>
+
+
+Notes:
+- pogubił się co ma w kontekście
+- nie umiał znaleźć `sleep` ani `delay`, to uruchomił `ping` przez 30 sekund
+
+---
+
+## Nie trafiam do niego
+
+<span class="comment block">Jakiś manual piszemy. Z trudem. </span>
+
+<span class="comment block">cline ignoruje .clinerules</span>
+
+<span class="prompt block">To są reguły, kt&oacute;re ja(operator), CI <span class="color_green fragment fragment" data-fragment-index="1"> &#128072;&#128072;&#128072;</span> zdefiniowałem...</span>
+
+<span class="answer block">Jako CI operator...</span>
+
+<span class="prompt block fragment fragment" data-fragment-index="0">Yyyy??? Co to jest CI???</span>
+
+<span class="answer block fragment fragment" data-fragment-index="0">Continuous Integration</span>
+
+<span class="prompt block fragment fragment" data-fragment-index="1">Skąd *****???</span>
+
+<span class="answer block fragment fragment" data-fragment-index="1">Projekt jest o github actions, poza tym pisałeś "operator CI"...</span>
+
+<span class="prompt block fragment fragment" data-fragment-index="3">Nie CI !!! TOBIE !!!</span>
+
+<span class="answer block fragment fragment" data-fragment-index="4">Jako TOBIE operator...</span>
+
+
+Notes:
+- Przypuszczam, że winny był tokenizer
+  - Wszystko wielkimi literami (TCP/IP, CI, TOBIE) traktował jako nazwę własną, bez wnikania w semantykę
+</script>
+          </section>
+          
+        </section>
+        
+        <section>
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Część II
+
+## O akceptacji języka naturalnego
+</script>
+          </section>
+          
+          <section class="has_tip tip_at_line_8">
+            <blockquote>
+              <p>
+                <strong>Mastah</strong>:
+                <br>
+                Master hacker
+                <br>
+                ⟶ Masta hacka
+                <br>
+                ⟶ Mastah
+              </p>
+            </blockquote>
+            <h1>Structural JSON</h1>
+            <h2>Garbage-in-Garbage-out</h2>
+            <blockquote>
+              <p>
+                Byłem na rekrutacji, zapytali czy umiem w prompty
+                <br>
+                A ja im od razu strukturalnego JSONa&hellip;
+                <br>
+                Łoo, Ty to ale jesteś! Mastah &#128558;
+              </p>
+            </blockquote>
+            <span class="block color_green">Na strukturalnego JSON w promptach był hype <span class="fragment fade-out" data-fragment-index="0">dawno</span><span class="fragment" data-fragment-index="0">jakiś rok</span> temu</span>
+            <p class="fragment" data-fragment-index="0">
+              <span class="block color_green">Mowa jest o czymś takim:</span>
+            </p>
+            <div class="fragment" data-fragment-index="0">
+              <pre>                <code class="language-json">{
+  "task": "...",
+  "jira_context": "...",
+  "memory_bank": ["..."],
+  "files": ["..."],
+  "problem": "...",
+  "proposed_approach": "..."
+}</code>
+              </pre>
+            </div>
+          </section>
+          
+          <section class="has_tip tip_at_line_3">
+            <blockquote>
+              <p>
+                <strong>Interakcja:</strong>
+                <br>
+                - chat bot
+                <br>
+                - mechaniczny programista
+                <br>
+                <strong>Produkcja:</strong>
+                <br>
+                - prompt w ramach toolchainu
+                <br>
+                - fragment procesu
+              </p>
+            </blockquote>
+            <h1>Structural JSON</h1>
+            <h2>Garbage-in-Garbage-out</h2>
+            <p class="color_green">
+              <span class="block">Mowa jest o czymś takim <strong>(jako prompt otwierający interakcję)</strong></span>
+            </p>
+            <div>
+              <pre>                <code class="language-json">{
+  "task": "...",
+  "jira_context": "...",
+  "memory_bank": ["..."],
+  "files": ["..."],
+  "problem": "...",
+  "proposed_approach": "..."
+}</code>
+              </pre>
+            </div>
+            <p class="color_green">
+              <span class="block">Mieszanie benchmark&oacute;w z produkcji w interakcję</span><span class="block">&rarr; overhyped JSON</span>
+            </p>
+            <p class="fragment" data-fragment-index="0">
+              <span class="color_red block">Pytanie z Reddita: <strong>"Co się z tym robi?"</strong></span>
+            </p>
+            <p class="fragment" data-fragment-index="0">
+              <span class="color_green block">To się: projektuje, wypełnia danymi i wkleja jak zwykły prompt</span>
+            </p>
+            <aside class="notes">
+              <p>https://www.reddit.com/r/ChatGPTPromptGenius/comments/1mteqd5/i_built_a_json_prompt_that_makes_ai_write_like_a/?tl=pl</p>
+              <p>Sama składnia JSONa nie powinna być dla nas trudna</p>
+            </aside>
+          </section>
+          
+          <section class="has_tip tip_at_line_3">
+            <blockquote>
+              <p>
+                <strong>Interakcja:</strong>
+                <br>
+                - chat bot
+                <br>
+                - mechaniczny programista
+                <br>
+                <strong>Produkcja:</strong>
+                <br>
+                - prompt w ramach toolchainu
+                <br>
+                - fragment procesu
+              </p>
+            </blockquote>
+            <h1>Structural JSON</h1>
+            <h2>Garbage-in-Garbage-out</h2>
+            <p class="color_green">
+              <span class="block">Mowa jest o czymś takim <strong>(prompt otwierający interakcję)</strong>:</span>
+            </p>
+            <div>
+              <pre>                <code class="language-json">{
+  "task": "...",
+  "jira_context": "...",
+  "memory_bank": ["..."],
+  "files": ["..."],
+  "problem": "...",
+  "proposed_approach": "..."
+}</code>
+              </pre>
+            </div>
+            <span class="block "><span class="color_green">Bo AI JSONa świetnie rozumie </span><span class="color_blue fragment" data-fragment-index="0">‑&nbsp;a język naturalny jest dla LLMa jakiś obcy?</span></span><span class="block "><span class="color_green">JSON to standard nowoczesnej wymiany danych </span><span class="color_blue fragment" data-fragment-index="0">‑&nbsp;JSON jest czytelny dla człowieka, ale <strong>jego zapis bywa trudny</strong></span></span><span class="block "><span class="color_green">JSON jest testowalny, można go wersjonować, łatwiej się debuguje </span><span class="color_blue fragment" data-fragment-index="0">‑&nbsp;<strong>Yyyy?</strong> Ale ja to używam jednorazowo</span></span><span class="block "><span class="color_green">Prompt w języku naturalnym można szybko wpisać i uzyskać jakiś‑tam wynik, JSON ma lepsze metryki jakości </span><span class="color_blue fragment" data-fragment-index="0">‑&nbsp;<strong>nie ma zakazu używania "tłustych" prompt&oacute;w</strong></span></span>
+            <aside class="notes">
+              <p>https://www.unite.ai/pl/what-is-json-prompting-and-why-is-everyone-talking-about-it</p>
+            </aside>
+          </section>
+          
+          <section class="has_tip tip_at_line_3">
+            <blockquote>
+              <p>
+                <strong>Interakcja:</strong>
+                <br>
+                - chat bot
+                <br>
+                - mechaniczny programista
+                <br>
+                <strong>Produkcja:</strong>
+                <br>
+                - prompt w ramach toolchainu
+                <br>
+                - fragment procesu
+              </p>
+            </blockquote>
+            <h1>Structural JSON</h1>
+            <h2>Garbage-in-Garbage-out</h2>
+            <p class="color_green">
+              <span class="block">Mowa jest o czymś takim <strong>(prompt otwierający interakcję)</strong>:</span>
+            </p>
+            <div>
+              <pre>                <code class="language-json">{
+  "task": "...",
+  "jira_context": "...",
+  "memory_bank": ["..."],
+  "files": ["..."],
+  "problem": "...",
+  "proposed_approach": "..."
+}</code>
+              </pre>
+            </div>
+            <p>
+              <span class="block color_green">M&oacute;j rutynowy prompt na początek implementacji zadania z Jiry</span><span class="block color_green">&hellip; przygotowanie czasem trwa nawet p&oacute;ł godziny</span>
+            </p>
+            <div>
+              <pre>                <code class="language-plaintext">/deep-planning Jesteśmy w tasku `...`
+Kontekst z Jiry: "...".
+Przeczytaj memory bank:
+- `...`
+- `...`
+Przeczytaj pliki:
+- `...`
+- `...`
+Problem jest taki, że ...
+M&oacute;j pomysł jest taki, że ...</code>
+              </pre>
+            </div>
+            <p>
+              <span class="block color_green">Wartość jest w kontekście, nie w klamrach</span>
+            </p>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Akceptacja interfejsów
+
+Kolejność **nie**przypadkowa:
+- IDE / GUI
+- CLI
+- AI Chat
+- Voice
+</script>
+          </section>
+          
+          <section class="has_tip tip_at_line_5" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+> IDE / CLI / chat / voice
+
+# Dlaczego "AI chat" jest tak nisko?
+
+<span class="color_red block fragment fragment fade-out" data-fragment-index="0">Chwila do namysłu dla publiczności</span>
+
+
+<span class="color_red block fragment fragment fade-in-then-out" data-fragment-index="0">&#129763; Moje typy</span>
+
+
+<span class="color_green block fragment fragment" data-fragment-index="0">Niska innowacyjność <span class="color_blue fragment fragment" data-fragment-index="1">- wsp&oacute;łpraca z mechanicznym programistą nie wnosi nic nowego, używamy tych samych technik i czynności</span></span>
+
+<span class="color_green block fragment fragment" data-fragment-index="0">Dyskomfort &#128547; <span class="color_blue fragment fragment" data-fragment-index="1">- dolina niesamowitości (uncanny valley)</span></span>
+
+<span class="vspace" style="height: 1em"></span>
+<span class="color_green block fragment fragment" data-fragment-index="0">Brak powtarzalności <span class="color_blue fragment fragment" data-fragment-index="1">- nigdy nie wiem, jak "dziś" będzie mi się wsp&oacute;łpracować z AI</span></span>
+
+<span class="color_green block fragment fragment" data-fragment-index="0">Koszt weryfikacji <span class="color_blue fragment fragment" data-fragment-index="1">- może i kod wygląda nieźle, ale na produkcję? Bez review?</span></span>
+
+<span class="color_green block fragment fragment" data-fragment-index="0">Obserwowalność <span class="color_blue fragment fragment" data-fragment-index="1">- black box nie ma flagi `--verbose`</span></span>
+
+
+Notes:
+- Pozwolę sobie nie omawiać ostatnich trzech
+  - wydają mi się w miarę uniwersalne
+- Można jeszcze dodać:
+  - Brak determinizmu
+  - Mniejsza kontrola nad szczegółem
+  - Brak utrwalonych konwencji i kompetencji
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Dlaczego "AI chat" jest tak nisko?
+## Niska innowacyjność
+
+<span class="color_red block">Yyyy? Wykorzystanie AI jest mało innowacyjne?</span>
+
+<span class="color_blue block">Komputeryzacja (wczesne lata '80) nie doprowadziła od razu do wzrostu wydajności</span>
+
+
+> komputery widać wszędzie poza statystyką
+
+<span class="color_green block">Znaliśmy CP/M, bazy danych, edytory tekst&oacute;w</span>
+
+<span class="color_blue block">Efekt dały sieci, kooperacja między programami, integracja system&oacute;w, zmiany proces&oacute;w&hellip;</span>
+
+<span class="color_red block">Nauczyliśmy się ich używać</span>
+
+
+Notes:
+- Przykład: pierwsze pojazdy z napędem silnikowym to były bryczki bez konia, nawet woźnica nie siedział pod dachem
+- Paradoks Produktywności (Solow, 1987): komputery widać wszędzie poza statystyką
+- Wzrost przyszedł z opóźnieniem (lata '90), po nauczeniu się narzędzia i integracji
+</script>
+          </section>
+          
+          <section class="has_tip tip_at_line_25" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+> ©Masahiro Mori
+
+# Dlaczego "AI chat" jest tak nisko?
+## Dolina niesamowitości (Uncanny Valley)
+
+<img alt="wykres: dolina niesamowitości" class="illustration large" src="images/Mori_Uncanny_Valley.svg">
+
+<span class="color_blue block">Teoria Moriego dotyczyła **wyłącznie wyglądu i ruchu**</span>
+
+<span class="color_blue block">Dolina niesamowitości: <span class="color_green">obszar negatywnych reakcji wobec robot&oacute;w "prawie" ludzkich</span></span>
+
+<span class="color_red block">Jeśli udajesz człowieka, to r&oacute;b to bardzo dobrze</span>
+
+<span class="color_green block">To jest oczywiście statystyka, każdy jest jakiś</span>
+
+<span class="vspace" style="height: 1em"></span>
+<span class="color_red block">&#129763; Będzie naciąganie teorii</span>
+
+<span class="color_red block">Jeśli udajesz inteligencję: albo r&oacute;b to bardzo dobrze, albo nie zaprzyjaźnimy się</span>
+
+
+Notes:
+- License: By Smurrayinchester - self-made, based on image by Masahiro Mori and Karl MacDorman at http://www.androidscience.com/theuncannyvalley/proceedings2005/uncannyvalley.html (archive), CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2041097
+- Dwa wykresy - nieruchome i poruszające się
+- Wykres: Reakcja emocjonalna w zależności od stopnia antropomorfizmu robota
+- "bunraku puppet" tak wysoko??? To chyba jakiś lokalny koloryt kulturowy
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Trójkąt akceptacji
+
+<img alt="tr&oacute;jkąt akceptacji" class="illustration large" src="images/ai_triangle_PL.png">
+
+<span class="color_blue block">Wybierzcie proszę</span>
+
+<span class="color_blue block">Gdzie lokujecie sw&oacute;j spos&oacute;b wsp&oacute;łpracy z czat-botami</span>
+
+<span class="color_green block">Wierzchołki:</span>
+
+<span class="color_green block">- naturalny dialog w języku naturalnym jest ok</span>
+
+<span class="color_green block">- wolę JSON strukturalny i inne formy syntetyczne</span>
+
+<span class="color_green block">- ale że z maszyną rozmawiać?</span>
+
+
+<span class="vspace" style="height: 1em"></span>
+
+<span class="color_red block">Wspieranie się AI to jest nowa wymagana umiejętność</span>
+
+<span class="color_red block">Znam inżynier&oacute;w wysokiej klasy, kt&oacute;rzy z niej nie korzystają</span>
+
+
+Notes:
+- ten trójkąt to jest mój wynalazek, w internetach go nie znajdziecie
+</script>
+          </section>
+          
+          <section class="has_tip tip_at_line_17">
+            <blockquote>
+              <span>Andrew Ng</span>
+              <br>
+              <span>100 Most Influential People in AI</span>
+            </blockquote>
+            <h1>Tr&oacute;jkąt akceptacji</h1>
+            <iframe allow="autoplay; encrypted-media; fullscreen 'none'; picture-in-picture 'none'" class="illustration" src="https://www.youtube.com/embed/Yfhd7XpBZIU?start=2715&amp;mute=1&amp;controls=0&amp;fs=0&amp;cc_load_policy=0" title="Andrew Ng ogłasza przełomowy test ludzkiej inteligencji."></iframe>
+            <blockquote>
+              <span>Specjaliści, kt&oacute;rzy wykorzystają AI, będą w stanie zrobić dużo więcej</span>
+              <br>
+              <span>Osoby, kt&oacute;re nie wykorzystają tych możliwości zostaną w tyle</span>
+            </blockquote>
+            <p>
+              <span class="color_red block">Wspieranie się AI to jest nowa wymagana umiejętność</span>
+            </p>
+            <p>
+              <span class="color_red block">Znam inżynier&oacute;w wysokiej klasy, kt&oacute;rzy z niej nie korzystają</span>
+            </p>
+            <p>
+              <span class="color_red block">Może ten trzeci wierzchołek jest ważniejszy niż wygląda? &#128542;</span>
+            </p>
+            <span class="vspace" style="height: 1em"></span><img alt="tr&oacute;jkąt akceptacji - trudne przejście z nieśmiałości do języka naturalnego" class="illustration large" src="images/ai_triangle_red_PL.png">
+            <p>
+              <span class="color_red block">&#129763; Może z "nieśmiałości" łatwiej wyjść przez strukturę niż dialog?</span>
+            </p>
+            <aside class="notes">
+              <p>2023 Time 100 Most Influential People in AI</p>
+              <p>Ja na przykład nie zaakceptowałem "rozmowy" z maszyną. Te wszystkie "Ok Bixby", "Ok google", głosowe wybieranie numer&oacute;w mimo wielu pr&oacute;b - nie potrafię się przełamać</p>
+            </aside>
+          </section>
+          
+          <section>
+            <h1>Tr&oacute;jkąt akceptacji</h1>
+            <iframe allow="autoplay; encrypted-media; fullscreen 'none'; picture-in-picture 'none'" class="illustration" src="https://www.youtube.com/embed/Yfhd7XpBZIU?start=2715&amp;mute=1&amp;controls=0&amp;fs=0&amp;cc_load_policy=0" title="Andrew Ng ogłasza przełomowy test ludzkiej inteligencji."></iframe>
+            <blockquote>
+              <span>Specjaliści, kt&oacute;rzy wykorzystają AI, będą w stanie zrobić dużo więcej</span>
+              <br>
+              <span>Osoby, kt&oacute;re nie wykorzystają tych możliwości zostaną w tyle</span>
+            </blockquote>
+            <p>
+              <span class="color_red block">Wspieranie się AI to jest nowa wymagana umiejętność</span>
+            </p>
+            <p>
+              <span class="color_red block">Znam inżynier&oacute;w wysokiej klasy, kt&oacute;rzy z niej nie korzystają</span>
+            </p>
+            <p>
+              <span class="color_red block">Może ten trzeci wierzchołek jest ważniejszy niż wygląda? &#128542;</span>
+            </p>
+            <span class="vspace" style="height: 1em"></span><img alt="tr&oacute;jkąt akceptacji - łatwiejsze przejście z nieśmiałości do JSON" class="illustration large" src="images/ai_triangle_green_PL.png">
+            <p>
+              <span class="color_red block">&#129763; Może z "nieśmiałości" łatwiej wyjść przez strukturę niż dialog?</span>
+            </p>
+            <p>
+              <span class="color_green block">Może podpowiedź jest na obrazku?</span>
+            </p>
+            <p>
+              <span class="color_green block">Model nie zauważy, a przestajesz modelować "kogoś"</span>
+            </p>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Drugie wykluczenie cyfrowe
+
+<img alt="Czy-sztuczna-inteligencja-poglebia-wykluczenia-cyfrowe-1" class="illustration" src="images/raport_gov.jpg">
+
+## AI adoption divide
+
+> […] brak kompetencji umożliwiających korzystanie z narzędzi w pracy i życiu codziennym.
+
+> Istnieje pilna potrzeba interwencji edukacyjnych, które przełamią "spiralę wykluczenia"
+
+> Bez proaktywnych […] działań […] sztuczna inteligencja, zamiast stać się
+narzędziem wyrównywania szans, utrwali i pogłębi istniejące nierówności społeczne.
+
+Notes:
+- Tu nie chodzi o dostęp, tylko o kompetencję korzystania z AI
+- AI adoption divide: nie ma dobrego tłumaczenia PL
+- `https://ai.gov.pl/media/2026/04/Czy-sztuczna-inteligencja-poglebia-wykluczenia-cyfrowe-1.pdf`
+</script>
+          </section>
+          
+        </section>
+        
+        <section>
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Część III
+
+## Czy cline ma duszę?
+</script>
+          </section>
+          
+          <section class="has_tip tip_at_line_15" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+> Jacek Dukaj  
+> W kraju niewiernych  
+> In partibus infidelium
+
+# Czy cline ma duszę?
+
+Kogo to interesuje?
+
+- filozofowie
+- ~religia~
+- **teolodzy**
+- Jacek Dukaj
+- _producenci żelazek_
+- _lutnicy_
+
+Notes:
+- religia: pomijam (zasady korporacyjne)
+</script>
+          </section>
+          
+          <section class="has_tip tip_at_line_17">
+            <blockquote>
+              <span>Wojciech Grygiel</span>
+              <br>
+              <span>teolog-naukowiec</span>
+            </blockquote>
+            <h1>Czy cline ma duszę?</h1>
+            <iframe allow="autoplay; encrypted-media; fullscreen 'none'; picture-in-picture 'none'" class="illustration" src="https://www.youtube.com/embed/kcNiibTCdow?start=3811&amp;mute=1&amp;controls=0&amp;fs=0&amp;cc_load_policy=0" title="Jeden świat, dwa języki"></iframe>
+            <p>
+              <span class="color_blue block">w filmie mowa o:</span>
+            </p>
+            <p>
+              <span class="color_blue block"><strong>Kongregacja Nauki Wiary, list o eschatologii</strong>, 1979.</span>
+            </p>
+            <blockquote>
+              <span>Dokument nie robi roszczeń w stylu "dusza istnieje".</span>
+              <br>
+              <span>Jest to coś, co warunkuje naszą podmiotowość, przetrwa śmierć fizyczną.</span>
+              <br>
+              <span>&hellip; <strong>nie jest wykluczone, że nie można podjąć jakiegoś innego aparatu</strong> &hellip;</span>
+              <br>
+              <span>Jak to nazwiemy - to kwestia zmienna.</span>
+            </blockquote>
+            <p>
+              <span class="color_blue block">Bez precyzowania z czego ludzka dusza jest, ale jak może być z czegoś innego, to wszystko jedno &#128519;</span>
+            </p>
+            <aside class="notes">
+              <ul>
+                <li>
+                  <p>Grygiel m&oacute;wi 1978; dokument o eschatologii to 1979 (Kongregacja Nauki Wiary)</p>
+                </li>
+                <li>
+                  <p>Inne filmy warte uwagi</p>
+                  <ul>
+                    <li>
+                      <p>
+                        <a href="https://www.youtube.com/watch?v=atfxadPv7Zw">Tego nie usłyszysz w Kościele! Biblia, Wielki Wybuch, Brak Cud&oacute;w</a>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <a href="https://www.youtube.com/watch?v=QI8O6mpzejc">Nie powiedziałbym tego z ambony. Dusza jako emergentna właściwość m&oacute;zgu</a>
+                      </p>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </aside>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Czy cline ma duszę?
+
+## Watykan nie lubi być zaskakiwany
+
+### Szczególnie przez obcych
+
+Gdyby byli rozumni obcy - wypada mieć wypracowane stanowisko
+
+- **dusza**:
+  - po śmierci zachowuje świadomość i wolę
+  - raczej coś innego niż stan zapisany w "hiberfil.sys"
+- **anioły**
+  - niematerialne, niecielesne, osobowe, mają rozum (eng: intelligence) i wolę
+    - Katechizm, §330 LAT: "intelligentiam habent et voluntatem" 😏
+  - są nazwanym bytem
+- **obcy**
+  - mogą istnieć, także inteligentni
+  - nie są rozstrzygnięte ich relacje z Bogiem ani kwestia odkupienia
+
+Teologiczna przestrzeń bytów osobowych nie kończy się na biologicznym Homo sapiens
+
+Notes:
+- Katechizm Kościoła Katolickiego, §328-330
+  - niuans jest w tłumaczeniu "intelligence" / "rozum"
+  - §330 LAT: "intelligentiam habent et voluntatem" - nie podejmuję się tłumaczenia
+  - §330 ENG: "angels have intelligence and will"
+  - §330 PL: aniołowie są osobowi, rozumni, wolni; nie są ludźmi ani ludzkimi duszami
+- Kongregacja Nauki Wiary, list o eschatologii, 1979, pkt 3: po śmierci trwa "element duchowy" ze świadomością i wolą; ten element Kościół nazywa "duszą"
+  - Jan Paweł II zatwierdził i zarządził publikację
+- (to wywiad, **nie doktryna**) José Gabriel Funes SJ, dyrektor Obserwatorium Watykańskiego, L'Osservatore Romano, 2008: inteligentni obcy są teologicznie dopuszczalni
+- z aniołów i obcych nie wynika, że każdy inteligentny system jest osobą
+
+---
+
+# Czy cline ma duszę?
+
+## Dzisiaj: nie ma do tego podstaw
+
+> Watykańska nota "Antiqua et nova" opisuje AI jako:  
+> - system wykonujący zadania  
+> - **imitację** rezultatów ludzkiej inteligencji  
+> - narzędzie, nie osobę  
+> BTW: osoba != dusza
+
+<span class="vspace" style="height: 1em"></span>
+
+- To nie jest definicja "braku duszy"
+- To ocena: dzisiejsza AI nie jest osobą ani moralnym podmiotem
+
+Notes:
+- Dicastery for the Doctrine of the Faith + Dicastery for Culture and Education, "Antiqua et nova", 2025
+- §10-12: "inteligencja" AI jest funkcjonalna; wykonuje zadania, ale to nie to samo, co ludzkie myślenie
+- §59: AI to "narzędzie, nie osoba"; dokument wprost ostrzega przed antropomorfizacją
+- dokument nie mówi wprost "AI nie ma duszy" - mówi, że nie jest osobą
+- Franciszek zatwierdził i zarządził publikację
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+# Czy cline mogłoby mieć duszę?
+
+## Tego dokumenty Kościoła nie rozstrzygają
+
+🫣 Przyszłe AI od reptilianina mogłoby się nie różnić znacząco
+- 🫣 reptilianina też nie spotkałem
+- 🫣 nie mam pojęcia jak będzie działać AI
+- obcy - w zasadzie mógłby mieć duszę
+- AI+ - Yyyy?
+
+<span class="vspace" style="height: 2em"></span>
+
+### Ciekawie będzie, gdy przejdziemy
+### z pytań "co to potrafi?" do "kto to jest?"…
+
+Notes:
+- "Antiqua et nova", przypis 10: nawet hipotetyczna AGI, która wydawałaby się naprawdę inteligentna, w tej perspektywie pozostaje funkcjonalna
+- dzisiejsza AI nie jest osobą
+- niebiologiczna osoba w przyszłości nie jest logicznie wykluczona, ale wymagałaby osobnej teologii
+</script>
+          </section>
+          
+        </section>
+        
+        <section>
+          <section class="has_tip tip_at_line_39" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+> Douglas Hofstadter, Gödel, Escher, Bach - "trip-let"
+
+<img alt="GEB" class="illustration small" src="images/geb.jpg">
+
+# Grande finale
+
+## niewspółprzywiedlność
+
+<span class="color_blue block">Poznawczo: <span class="color_green">Rozmawiamy z AI jak z "kimś", bez wyrobionych instynkt&oacute;w</span></span>
+
+<span class="color_blue block">Metafizycznie: <span class="color_green">&#129763; Sztuczne pochodzenie nie zamyka ścieżki do bycia osobą</span></span>
+
+<span class="color_blue block">Społecznie: <span class="color_green">Umiejętność korzystania z AI staje się osią "drugiego wykluczenia cyfrowego"</span></span>
+</script>
+          </section>
+          
+        </section>
+        
+        <section>
+          <section class="has_tip">
+            <h1 class="r-fit-text">&#128079; Thank you &#129303;</h1>
+            <h2 class="r-fit-text">❤️❤️❤️ &#128150;&#128150;&#128150; &#127801;&#127801;&#127801; &#128150;&#128150;&#128150; ❤️❤️❤️</h2>
+            <hr>
+            <img alt="QR: https://github.sec.samsung.net/j-banaszczyk/ai-soul/" class="illustration large" src="images/qr-ai-soul.png">
+            <p>
+              <span class="color_blue block">&copy;'26 Jacek Banaszczyk</span>
+            </p>
+            <p>
+              <span class="color_blue block">j.banaszczyk@samsung.com</span>
+            </p>
+          </section>
+          
+        </section>
+        
+      </div>
+    </div>
+    	
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/onetimer/onetimer.js"></script>
+	<script src="revealjs/plugin/mouse-pointer/mouse-pointer.js"></script>
+	<script src="revealjs/plugin/elapsed-time-bar/elapsed-time-bar.js"></script>
+	<script src="revealjs/plugin/skip-fragments/skip-fragments.js"></script>
+	<script src="revealjs/plugin/notes/notes.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/plugin/markdown/markdown.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/plugin/math/math.js"></script>
+	<script src="revealjs/plugin/clipboard/clipboard.js"></script>
+	<script src="revealjs/plugin/copycode/copycode.js"></script>
+	<script src="revealjs/plugin/menu/menu.js"></script>
+
+	<script>
+		Reveal.initialize({
+			minScale: 0.01,
+			maxScale: 5.0,
+			width: 1920,
+			height: 1080,
+			progress: true,
+			mouseWheel: false,
+			center: false,
+			margin: 0.01,
+			history: true,
+			transition: 'fade',
+			transitionSpeed: 'fast',
+
+			slideNumber: 'c/t',
+
+			scrollLayout: 'full',
+
+			scrollProgress: 'auto',
+
+			scrollActivationWidth: 1,
+
+			scrollSnap: 'mandatory',
+
+			menu: {
+				numbers: true
+			},
+			
+			copycode: {
+				timeout: 3000,
+				copy: 'Copy',
+				copied: 'Copied!',
+				copybg: '#FFB546',
+				copiedbg: '#FFB546'
+			},
+			
+			oneTimer: { immediateMode: false },
+			elapsedTimeBar: { allowedTime: 20 },
+			plugins: [ RevealNotes, RevealZoom, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX, RevealMenu, CopyCode, OneTimer, MousePointer, ElapsedTimeBar, SkipFragments ]
+		});
+
+</script>
+  </body>
+</html>
+
