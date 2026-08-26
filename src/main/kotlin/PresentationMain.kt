@@ -168,6 +168,32 @@ fun KSlides.presentationMain() {
                 }
             }
         }
+
+        markdownSlide {
+            content {
+                """
+                    # Rationale
+
+                    ${Mark.GREEN.block("Autorefleksja: Mam wrażenie, że używam cline nieprofesjonalnie", fragmentIndex = 0)}
+                    ${Mark.BLUE.block("Ja się na niego złoszczę (w prompcie)", indent = 1, fragmentIndex = 0)}
+                    ${Mark.BLUE.block("Piszę, co zrobił źle (a wiem, że nie uczy się)", indent = 1, fragmentIndex = 0)}
+                    ${Mark.RED.block("A może jednak nie? Może ten brak profesjonalizmu ma sens?", indent = 1, fragmentIndex = 0)}
+                    ${vspace()}
+
+                    ${Mark.GREEN.block("AI jeszcze nie zostało powszechnie zaadoptowane", fragmentIndex = 1)}
+                    ${Mark.RED.block("Już jest źródłem problemów społecznych", indent = 1, fragmentIndex = 1)}
+                    ${vspace()}
+
+                    ${Mark.GREEN.block("Czy cline ma duszę?")}
+                    ${Mark.BLUE.block("Wypada jakoś poruszyć zajawkę z tytułu", indent = 1)}
+                    ${Mark.RED.block("Skoro takie pytanie można w ogóle postawić${charHellip}", indent = 1)}
+                    
+                    Notes:
+                    Będą trzy części, w tej właśnie kolejności
+                """.trimIndent()
+            }
+        }
+
         verticalSlides {
             markdownSlide {
                 content {
@@ -436,7 +462,7 @@ fun KSlides.presentationMain() {
                 }
             }
             markdownSlide {
-                classes = "has_tip tip_at_line_17"
+                classes = "has_tip tip_at_line_12"
                 content {
                     """
                         > Perplexity
@@ -465,6 +491,9 @@ fun KSlides.presentationMain() {
                         ${Mark.ANSWER.block("Rozumiem instrukcję - uprościć funkcję `yyyy`")}
                         ${Mark.COMMENT.block("Dekodowanie sarkazmu to potężny wysiłek intelektualny")}
                         ${Mark.RED.block("No przecież${charHellip} antropomorfizuję", 0)}
+                        
+                        Notes:
+                        - Raz przyłapałem (Anthropic) "user sarkastycznie..." 
                     """.trimIndent()
                 }
             }
@@ -552,6 +581,32 @@ fun KSlides.presentationMain() {
             markdownSlide {
                 content {
                     """
+                        # Jak żyć
+
+                        ${Mark.RED.block("W żaden sposób nie usiłuję osądzać: tak jest dobrze, a tak nie")}
+                        ${Mark.BLUE.block("Jestem fanem programowania ze wsparciem mechanicznym")}
+                        ${Mark.BLUE.block("Z grubsza wiem, jak toto działa")}
+                        ${Mark.BLUE.block("a mam z nim relacje ${charHellip} antropomorfizujące")}                        
+                        ${vspace()}
+                        
+                        ${Mark.GREEN.block("W pierwszych próbach kodowania z Anthropic", fragmentIndex = 0)}
+                        ${Mark.GREEN.block("Prosty refactoring, za dużo mu pozwoliłem...", fragmentIndex = 0)}
+                        ${Mark.PROMPT.block("Zobacz co narobiłeś, dwie godziny nam zeszło na rollbackowaniu twojego kodu", fragmentIndex = 0)}                        
+                        ${Mark.COMMENT.block("Tak, ja wiem, _on_ się nie wstydzi, nie uczy się na przykładach", fragmentIndex = 0)}
+                        
+                        ${Mark.ANSWER.block("Niepotrzebnie wziąłem Twoje pytania jako zlecenie pracy", fragmentIndex = 1)}
+                        ${Mark.ANSWER.block("Możemy wpisać do MEMORY, że Twoje pytania wymagają \"explain\", a nie \"fix\"", fragmentIndex = 1)}
+                        
+                        Notes:
+                        - Jeśli w  HQ robią analizę sentymentu na logach z moich konwersacji...
+                          - pewnie trzeba było załadować pełny słownik wyzwisk warszawskiego dorożkarza ;)
+                        - "twojego" - zawsze małymi literami, będzie na następnym slajdzie
+                    """.trimIndent()
+                }
+            }
+            markdownSlide {
+                content {
+                    """
                         # Zanim zrobi się poważnie (takie mi zostało)
 
                         ## Co robi cline jak się nudzi?
@@ -560,11 +615,11 @@ fun KSlides.presentationMain() {
                         ${Mark.ANSWER.block("`ping 127.0.0.1 -n 30`")}
                         ${Mark.PROMPT.block("Yyyy? Po co ci ping do localhost???")}
                         ${Mark.ANSWER.block("Użytkownik ma rację - ping do localhost był bez sensu.")}
-                        ${Mark.ANSWER.block("To było odczekanie na zakończenie builda w tle.")}
+                        ${Mark.COMMENT.block("A co Wy robicie czekając na koniec kompilacji? 😉")}
 
                         Notes:
-                        - pogubił się co ma w kontekście
-                        - nie umiał znaleźć `sleep` ani `delay`, to uruchomił `ping` przez 30 sekund
+                        - To było odczekanie na zakończenie builda w tle.
+                        - nie umiał znaleźć `sleep` ani `delay`, to uruchomił `cokolwiek` przez 30 sekund
 
                         ---
 
@@ -572,7 +627,7 @@ fun KSlides.presentationMain() {
 
                         ${Mark.COMMENT.block("Jakiś manual piszemy. Z trudem. ")}
                         ${Mark.COMMENT.block("cline ignoruje .clinerules")}
-                        ${Mark.PROMPT.block("To są reguły, które ja(operator), CI ${Mark.GREEN(" 👈👈👈", 1)} zdefiniowałem...")}
+                        ${Mark.PROMPT.block("To są reguły, które ja (operator), CI ${Mark.GREEN(" 👈👈👈", 1)} zdefiniowałem...")}
                         ${Mark.ANSWER.block("Jako CI operator...")}
                         ${Mark.PROMPT.block("Yyyy??? Co to jest CI???", 0)}
                         ${Mark.ANSWER.block("Continuous Integration", 0)}
@@ -660,6 +715,7 @@ fun KSlides.presentationMain() {
                             }
                         }
                     }
+                    notes { +"Nawet Urban Dictionary nie zna etymologii \"Mastah\", przynajmniej czegoś się dowiecie" }
                 }
             }
             dslSlide {
