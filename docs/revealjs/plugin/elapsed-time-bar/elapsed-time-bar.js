@@ -2,7 +2,7 @@ var ElapsedTimeBar = (function () {
     "use strict"
 
     let deck;
-    let barColor = 'rgb(255,0,0)';
+    let barColor = 'rgb( 254,93,77)';
     let pausedBarColor = 'rgba(0,255,0,.6)';
     let progressBarHeight = 3;
 
@@ -14,6 +14,7 @@ var ElapsedTimeBar = (function () {
     let startTime = null;
     let pauseTime = null;
     let pauseTimeDuration = 0;
+    let timeProgressContainer = null;
 
     function handleReady() {
         const config = deck.getConfig().elapsedTimeBar || {};
@@ -32,26 +33,27 @@ var ElapsedTimeBar = (function () {
         pausedBarColor = config.pausedBarColor || deck.getConfig().pausedBarColor || pausedBarColor;
         progressBarHeight = config.progressBarHeight || deck.getConfig().progressBarHeight || progressBarHeight;
 
-        let barHeight = progressBarHeight + 'px';
+        let timeBarHeight = progressBarHeight + 'px';
+        let pageProgressHeight = '0px';
+
         let pageProgressContainer = document.querySelector('.progress');
 
-        if (pageProgressContainer && (config.progressBarHeight || deck.getConfig().progressBarHeight)) {
-            pageProgressContainer.style.height = barHeight;
-        } else if (pageProgressContainer && deck.getConfig().progress) {
-            barHeight = pageProgressContainer.getBoundingClientRect().height + 'px';
+        if (pageProgressContainer && deck.getConfig().progress) {
+            pageProgressHeight = pageProgressContainer.getBoundingClientRect().height + 'px';
         }
 
-        // create container of time-progress
-        let timeProgressContainer = document.createElement('div');
-        timeProgressContainer.classList.add('progress');
+        timeProgressContainer = document.createElement('div');
+        timeProgressContainer.classList.add('progress', 'elapsed-time-progress');
+
         Object.assign(timeProgressContainer.style, {
             display: 'block',
             position: 'fixed',
-            bottom: deck.getConfig().progress ? barHeight : 0,
             width: '100%',
-            height: barHeight
+            height: progressBarHeight + 'px'
         });
         document.querySelector('.reveal').appendChild(timeProgressContainer);
+
+        updatePosition();
 
         // create content of time-progress
         timeProgressBar = document.createElement('div');
@@ -63,6 +65,16 @@ var ElapsedTimeBar = (function () {
 
         // start timer
         start(allowedTime);
+    }
+
+    function updatePosition() {
+        const pageProgressContainer =
+            document.querySelector('.progress:not(.elapsed-time-progress)');
+
+        timeProgressContainer.style.bottom =
+            pageProgressContainer
+                ? pageProgressContainer.getBoundingClientRect().height + 'px'
+                : '0px';
     }
 
     function loop() {
@@ -120,6 +132,7 @@ var ElapsedTimeBar = (function () {
         id: 'elapsed-time-bar',
         init: function (reveal) {
             deck = reveal;
+            deck.on('slidechanged', updatePosition);
 
             if (deck.isReady()) {
                 handleReady();
@@ -147,7 +160,11 @@ var ElapsedTimeBar = (function () {
         resume: resume,
         reset: reset,
         start: start,
-        get isPaused() { return isPaused; },
-        get isFinished() { return isFinished; }
+        get isPaused() {
+            return isPaused;
+        },
+        get isFinished() {
+            return isFinished;
+        }
     };
 })();

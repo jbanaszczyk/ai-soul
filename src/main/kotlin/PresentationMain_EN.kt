@@ -3,11 +3,13 @@ import com.kslides.KSlides
 import kotlinx.html.*
 import styling.*
 
-fun KSlides.presentationMain() {
+fun KSlides.presentationMain_EN() {
     presentation {
         presentationConfig {
-            title = "Czy cline ma duszę?"
+            title = "Does cline have a soul?"
         }
+
+        path = "en.html"
 
         val pagesUrl = getPagesUrl(path)
         val githubRootUrl = getGithubRootUrl()

@@ -402,6 +402,10 @@
 			z-index: 10;
 			top: 3em;
 			}
+			.reveal:has(.slides section.present.end_of_thread) .progress:not(.elapsed-time-progress) {
+			height: 12px;
+			color: #FE5D4D;
+			}
 			:root {
 			--r-main-font: SamsungSSBody, Helvetica, sans-serif;
 			--r-heading-font: SamsungSSHead, Helvetica, sans-serif;
@@ -763,7 +767,7 @@ Notes:
 <span class="color_green block indent-1">Nie zamierzam "wiedzieć lepiej"</span>
 
 
- <span class="vspace" style="height: 4em"></span>
+ <span class="vspace" style="height: 2em"></span>
 
 > Jeśli na opakowaniu parówek jest napisane \"tu otwierać\":  
 > Nikt mi nie będzie mówić \"gdzie mam otwierać\"
@@ -781,31 +785,37 @@ Notes:
           <script type="text/template">
 # Rationale
 
-<span class="color_green block fragment fragment" data-fragment-index="0">Autorefleksja: Mam wrażenie, że używam cline nieprofesjonalnie</span>
+<span class="color_green block">Autorefleksja: Mam wrażenie, że używam cline nieprofesjonalnie</span>
 
-<span class="color_blue block fragment fragment indent-1" data-fragment-index="0">Ja się na niego złoszczę (w prompcie)</span>
+<span class="color_blue block indent-1">Ja się na niego złoszczę (w prompcie)</span>
 
-<span class="color_blue block fragment fragment indent-1" data-fragment-index="0">Piszę, co zrobił źle (a wiem, że nie uczy się)</span>
+<span class="color_blue block indent-1">Tłumaczę, co zrobił źle (a wiem, że nie uczy się)</span>
 
-<span class="color_red block fragment fragment indent-1" data-fragment-index="0">A może jednak nie? Może ten brak profesjonalizmu ma sens?</span>
-
-<span class="vspace" style="height: 1em"></span>
-
-<span class="color_green block fragment fragment" data-fragment-index="1">AI jeszcze nie zostało powszechnie zaadoptowane</span>
-
-<span class="color_red block fragment fragment indent-1" data-fragment-index="1">Już jest źr&oacute;dłem problem&oacute;w społecznych</span>
+<span class="color_red block indent-1">A może jednak nie? Może ten brak profesjonalizmu ma sens?</span>
 
 <span class="vspace" style="height: 1em"></span>
 
-<span class="color_green block">Czy cline ma duszę?</span>
+<span class="color_green block fragment fragment" data-fragment-index="0">AI jeszcze nie zostało powszechnie zaadoptowane</span>
 
-<span class="color_blue block indent-1">Wypada jakoś poruszyć zajawkę z tytułu</span>
+<span class="color_red block fragment fragment indent-1" data-fragment-index="0">Już jest źr&oacute;dłem problem&oacute;w społecznych</span>
 
-<span class="color_red block indent-1">Skoro takie pytanie można w og&oacute;le postawić&hellip;</span>
+<span class="vspace" style="height: 1em"></span>
+
+<span class="color_green block fragment fragment" data-fragment-index="1">Czy cline ma duszę?</span>
+
+<span class="color_red block fragment fragment indent-1" data-fragment-index="1">Wypada jakoś poruszyć zajawkę z tytułu</span>
 
 
 Notes:
-Będą trzy części, w tej właśnie kolejności
+Będą trzy części, w tej właśnie kolejności.
+- Jestem fanem programowania ze wsparciem mechanicznego programisty
+  - moja wydajność jest wyższa 3-5 razy; nie przepalam tylu tokenów
+- Część I: mało jest filmów czy kursów, które pokazują na najbardziej podstawowym poziomie
+  - jak się do AI zwracać; jak wpisać prompt
+  - jak rozmawiać z AI; jak wpisać wpisać serię promptów
+  - nawet jak są, to często wydają mi się niewiarygodne
+    - przepisane bezmyślnie tezy i koncepty wyprodukowane na "chłopski rozum"
+  - Mam wrażenie, że nie używam AI profesjonalnie
 </script>
         </section>
         
@@ -896,10 +906,11 @@ ____
 <span class="color_blue block">Ta wiedza działa zaledwie jak korekta intuicji</span>
 
 <span class="color_red block">Ta wiedza nie wyłącza modelowania "kogoś"</span>
-
-
----
-
+</script>
+          </section>
+          
+          <section class="end_of_thread" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
 # Ambiwalencja poznawcza
 
 <span class="vspace" style="height: 1em"></span>
@@ -920,7 +931,9 @@ ____
 
 <span class="vspace" style="height: 1em"></span>
 
-<span class="color_red block">Wiedza techniczna tylko tonuje antropomorfizację</span>
+<span class="color_red block">Wiedza techniczna koryguje antropomorfizację,</span>
+
+<span class="color_red block indent-1">ale jej nie wyłącza</span>
 </script>
           </section>
           
@@ -970,9 +983,9 @@ source: https://biennaleai.org
 
 <img alt="Smok" class="illustration fragment fragment" data-fragment-index="0" src="images/dragon.jpg">
 
-<span class="color_blue block">&#129763; Jednym z atrybut&oacute;w istot rozumnych</span>
+<span class="color_blue block">&#129763; Jednym z atrybut&oacute;w Homo Sapiens</span>
 
-<span class="color_blue block">jest posługiwanie się **naszym** (lub przetłumaczalnym) językiem.</span>
+<span class="color_blue block">jest posługiwanie się **językiem ze złożoną gramatyką**.</span>
 
 <span class="color_blue block">Nie mam żadnych dobrych przykład&oacute;w &#128533;</span>
 
@@ -980,7 +993,7 @@ source: https://biennaleai.org
 
 <span class="color_red block fragment fragment indent-1" data-fragment-index="0">_tu nie ma mowy o tym "co z czego wynika"_</span>
 
-<span class="color_red block fragment fragment indent-1" data-fragment-index="0">_ani język &rarr; wrażenie inteligencji, ani odwrotnie_</span>
+<span class="color_red block fragment fragment indent-1" data-fragment-index="0">ani język &rarr; wrażenie inteligencji, ani odwrotnie</span>
 
 <span class="color_green block fragment fragment" data-fragment-index="0">Delfiny? Chyba mają język, być może są inteligentne</span>
 
@@ -1006,9 +1019,11 @@ Notes:
 
 <img alt="Zabawka: Furby" class="illustration" src="images/furby.jpg">
 
-<span class="color_blue block">&#129763; Jednym z atrybut&oacute;w istot rozumnych</span>
+<span class="color_blue block">&#129763; Jednym z atrybut&oacute;w Homo Sapiens</span>
 
-<span class="color_blue block">jest posługiwanie się **naszym** (lub przetłumaczalnym) językiem.</span>
+<span class="color_blue block">jest posługiwanie się **językiem ze złożoną gramatyką**.</span>
+
+<span class="color_blue block">Nie mam żadnych dobrych przykład&oacute;w &#128533;</span>
 
 <span class="color_blue block">Ten mechanizm też jest nadczuły:</span>
 
@@ -1033,9 +1048,9 @@ Notes:
 
 <img alt="Logo: cline" class="illustration" src="images/cline.png">
 
-<span class="color_blue block">&#129763; Jednym z atrybut&oacute;w istot rozumnych</span>
+<span class="color_blue block">&#129763; Jednym z atrybut&oacute;w Homo Sapiens</span>
 
-<span class="color_blue block">jest posługiwanie się **naszym** (lub przetłumaczalnym) językiem.</span>
+<span class="color_blue block">jest posługiwanie się **językiem ze złożoną gramatyką**.</span>
 
 <span class="color_blue block">Nie mam żadnych dobrych przykład&oacute;w &#128533;</span>
 
@@ -1079,7 +1094,7 @@ Notes:
             </aside>
           </section>
           
-          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+          <section class="end_of_thread" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
             <script type="text/template">
 # Spiseq
 
@@ -1091,15 +1106,19 @@ Notes:
 
 <span class="color_green block">Możliwości też się r&oacute;żnią</span>
 
+
 <span class="color_blue block">Hobbit dawał namiastkę języka naturalnego</span>
 
-<span class="color_green block">LLM: "Wow, to gada, nawet z sensem"</span>
+<span class="color_blue block">LLM: "Wow, to gada, to programuje, nawet z sensem"</span>
 
-<span class="color_green block">LLM: "Wow, to programuje, czasem z sensem"</span>
 
-<span class="color_blue block">Nazwaliśmy tę namiastkę: AI - Artificial Intelligence</span>
+<span class="color_red block">Nazwaliśmy tę namiastkę: AI - Artificial Intelligence</span>
 
 <span class="color_red block">To tak, jakby nazywać Ubera taks&oacute;wką</span>
+
+
+<span class="vspace" style="height: 1em"></span>
+<span class="color_green block">**Dobra nazwa ⟶ entuzjazm, wycena, finansowanie**</span>
 
 <span class="color_black block yellow_subtitles">A może AI jest over-hyped?</span>
 
@@ -1393,7 +1412,7 @@ Notes:
                 Łoo, Ty to ale jesteś! Mastah &#128558;
               </p>
             </blockquote>
-            <span class="block color_green">Na strukturalnego JSON w promptach był hype <span class="fragment fade-out" data-fragment-index="0">dawno</span><span class="fragment" data-fragment-index="0">jakiś rok</span> temu</span>
+            <span class="block color_green">Na strukturalne prompty był hype <span class="fragment fade-out" data-fragment-index="0">dawno</span><span class="fragment" data-fragment-index="0">jakiś rok</span> temu</span>
             <p class="fragment" data-fragment-index="0">
               <span class="block color_green">Mowa jest o czymś takim:</span>
             </p>
@@ -1496,7 +1515,7 @@ Notes:
             </aside>
           </section>
           
-          <section class="has_tip tip_at_line_3">
+          <section class="has_tip tip_at_line_3 end_of_thread">
             <blockquote>
               <p>
                 <strong>Interakcja:</strong>
@@ -1558,6 +1577,9 @@ Kolejność **nie**przypadkowa:
 - CLI
 - AI Chat
 - Voice
+
+Notes:
+- Dałoby się nawet jakieś badania przywołać
 </script>
           </section>
           
@@ -1582,7 +1604,7 @@ Kolejność **nie**przypadkowa:
 
 <span class="color_green block fragment fragment" data-fragment-index="0">Koszt weryfikacji <span class="color_blue fragment fragment" data-fragment-index="1">- może i kod wygląda nieźle, ale na produkcję? Bez review?</span></span>
 
-<span class="color_green block fragment fragment" data-fragment-index="0">Obserwowalność <span class="color_blue fragment fragment" data-fragment-index="1">- black box nie ma flagi `--verbose`</span></span>
+<span class="color_green block fragment fragment" data-fragment-index="0">Pokaż kotku co masz w środku <span class="color_blue fragment fragment" data-fragment-index="1">- black box nie ma flagi `--verbose`</span></span>
 
 
 Notes:
@@ -1673,7 +1695,7 @@ Notes:
 
 <span class="vspace" style="height: 1em"></span>
 
-<span class="color_red block">Wspieranie się AI to jest nowa wymagana umiejętność</span>
+<span class="color_red block">Wspieranie się AI staje się nową, wymaganą umiejętnością</span>
 
 <span class="color_red block">Znam inżynier&oacute;w wysokiej klasy, kt&oacute;rzy z niej nie korzystają</span>
 
@@ -1744,7 +1766,7 @@ Notes:
             </p>
           </section>
           
-          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+          <section class="end_of_thread" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
             <script type="text/template">
 # Drugie wykluczenie cyfrowe
 
@@ -1909,7 +1931,7 @@ Notes:
 </script>
           </section>
           
-          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+          <section class="end_of_thread" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
             <script type="text/template">
 # Czy cline mogłoby mieć duszę?
 
@@ -1936,21 +1958,26 @@ Notes:
         </section>
         
         <section>
-          <section class="has_tip tip_at_line_39" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+          <section class="has_tip tip_at_line_34" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
             <script type="text/template">
-> Douglas Hofstadter, Gödel, Escher, Bach - "trip-let"
+> Douglas Hofstadter, Gödel, Escher, Bach - "trip-let"  
+> \-  
+> niewspółprzywiedlność - ©J.Bralczyk
 
-<img alt="GEB" class="illustration small" src="images/geb.jpg">
+<img alt="GEB" class="illustration large" src="images/geb.jpg">
 
 # Grande finale
 
-## niewspółprzywiedlność
+## Trzy różne opowieści o tym samym
+## … niewspółprzywiedlne
 
-<span class="color_blue block">Poznawczo: <span class="color_green">Rozmawiamy z AI jak z "kimś", bez wyrobionych instynkt&oacute;w</span></span>
+<span class="vspace" style="height: 1em"></span>
 
-<span class="color_blue block">Metafizycznie: <span class="color_green">&#129763; Sztuczne pochodzenie nie zamyka ścieżki do bycia osobą</span></span>
+<span class="color_blue block">Poznawczo: <span class="color_green">Rozmawiamy z AI jak z "kimś", nie mamy wyrobionych instynkt&oacute;w</span></span>
 
 <span class="color_blue block">Społecznie: <span class="color_green">Umiejętność korzystania z AI staje się osią "drugiego wykluczenia cyfrowego"</span></span>
+
+<span class="color_blue block">Metafizycznie: <span class="color_green">&#129763; Sztuczne pochodzenie nie zamyka ścieżki do bycia osobą</span></span>
 </script>
           </section>
           

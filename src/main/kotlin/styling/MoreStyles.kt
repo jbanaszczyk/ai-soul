@@ -29,3 +29,10 @@ fun CssBuilder.rightSideTipStyle() {
         top = 3.em
     }
 }
+
+fun CssBuilder.progressBarWithEot() {
+    rule(".reveal:has(.slides section.present.end_of_thread) .progress:not(.elapsed-time-progress)") {
+        height = 12.px
+        color = Color("#FE5D4D")
+    }
+}

@@ -20,6 +20,7 @@ fun main() {
             textTagStyles()
             tableStyles()
             rightSideTipStyle()
+            progressBarWithEot()
             defaultThemeSettings()
         }
 
@@ -29,6 +30,7 @@ fun main() {
         }
 
         presentationMain()
+        presentationMain_EN()
 
         presentationExample()
 
